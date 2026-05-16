@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background: #3a3a3a;
+}
+
+main {
+  padding: 10px 0px;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(61, 61, 61);
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 620px;
+  width: 80%;
+  border: 20px solid black;
+  border-radius: 40px;
+  background: #191919;
+  box-shadow: 0px 0px 1px 1px #b4b4b4;
+  gap: 10px;
+  padding: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#card1 {
+  grid-column: span 2;
+  height: 100%;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid #5c5c5c92;
+  box-shadow:
+    0px 0px 0px 3px #030303,
+    0px 0px 1px 3px #bebebe42;
+  background: #151515;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-wrap: nowrap;
+}
+
+.PicIncludeDiv {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid #5c5c5c92;
+  box-shadow:
+    0px 0px 0px 3px #030303,
+    0px 0px 1px 3px #bebebe42;
+  background: #232323;
+}
+.PicIncludeDiv img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+#combine-rows {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  grid-column: 5;
+  grid-row: span 2;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bod {
+  border-radius: 12px;
+  border: 1px solid #5c5c5c92;
+  box-shadow:
+    0px 0px 0px 3px #030303,
+    0px 0px 1px 3px #bebebe42;
+  background: #151515;
+}
+
+.icn {
+  width: 40px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  color: gray;
+}
+
+#Stack {
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+
+#Stack .logo{
+  background-color: rgb(50, 50, 50);
+  aspect-ratio: 1;
+  border-radius: 10px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color:rgba(255, 255, 255, 0.299)
+}
+
+#bottom-long{
+  grid-column: 1/4;
+  grid-row: 3/4;
+  width: 100%;
+  height: 100%;
+  padding: 30px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#bottom-left{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 50%;
+  gap: 20px;
+}
+
+#bottom-right img{
+  height: 110px;
+  aspect-ratio: 1;
+}
