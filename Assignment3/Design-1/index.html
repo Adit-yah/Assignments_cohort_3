@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design-1</title>
+    <style>
+      @font-face {
+        font-family: Bebas;
+        src: url(./fonts/BebasNeue-Regular.ttf);
+      }
+    </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="overflow-scroll [&::-webkit-scrollbar]:hidden">
+    <h1 class="lg:hidden text-red-400 p-5">
+      THIS TEMPLATE VIEW ONLY IN DESKTOP SCREEN...
+    </h1>
+    <main
+      class="hidden lg:block bg-[#FAF5EC] w-full min-h-screen px-[75px] py-[24px]"
+    >
+      <nav class="flex items-center  justify-between">
+        <div class="h-[60px] -mt-[10px] -translate-x-1/9 w-[20%] flex shrink-0">
+          <img class="h-full" src="./assets/Name.png" alt="Name" />
+        </div>
+        <div
+          class="flex gap-10 cursor-pointer  uppercase align-center text-gray-700 text-sm tracking-tighter font-semibold"
+        >
+          <h3
+            class="hover:text-[#3B714F] border-transparent border-b-[1px] hover:border-green-700"
+          >
+            Home
+          </h3>
+          <h3
+            class="hover:text-[#3B714F] hover:border-b-[1px] border-green-700"
+          >
+            About
+          </h3>
+          <h3
+            class="hover:text-[#3B714F] hover:border-b-[1px] border-green-700"
+          >
+            Chips
+          </h3>
+          <h3
+            class="hover:text-[#3B714F] hover:border-b-[1px] border-green-700"
+          >
+            Services
+          </h3>
+          <h3
+            class="hover:text-[#3B714F] hover:border-b-[1px] border-green-700"
+          >
+            Contact
+          </h3>
+        </div>
+        <div
+          class="nav-part-3 p-[4px_18px] relative flex items-center gap-5 rounded-4xl border-[1px] border-gray-700 before:content-['4'] before:absolute before:aspect-square before:bg-red-500 before:top-0 before:right-0 before:text-white before:p-[2px_7px] before:rounded-lg before:text-[10px] before:-translate-y-1/4 before:translate-x-1/5"
+        >
+          <div class="flex items-center gap-2">
+            <div class="serachlogo text-[#FDBA66] text-[18px]">
+              <i class="ri-search-line"></i>
+            </div>
+            <input
+              class="w-[100px] text-gray-700 text-[12px] font-semibold outline-none"
+              type="text"
+              name="input"
+              placeholder="Search for chips"
+            />
+          </div>
+          <div class="w-[1px] h-[25px] bg-gray-500"></div>
+          <div class="icon text-balck text-[20px] text-gray-700">
+            <i class="ri-shopping-bag-line"></i>
+          </div>
+        </div>
+      </nav>
+
+      <section class="mt-15 flex justify-between ">
+        <div class="flex gap-5 flex-col w-[50%] ">
+          <div
+            class="p-[2px_12px] bg-green-700/10 border-[1px] border-[#3B714F] w-fit rounded-2xl"
+          >
+            <h3 class="uppercase text-sm text-[#3B714F]">
+              <i class="ri-star-s-fill text-md"></i> 100% Real Ingredients
+            </h3>
+          </div>
+          <h1
+            class="uppercase font-[Bebas] text-[80px] leading-[1] relative before:absolute before:content-[''] before:[clip-path:polygon(0%_75%,12%_50%,30%_30%,55%_25%,82%_32%,60%_55%,100%_70%,78%_62%,45%_60%,0%_75%)] before:bg-yellow-500 before:h-[40px] before:w-[300px] before:block before:bottom-[-25px]"
+          >
+            Eat our <span class="text-[#3B714F]">grilled</span> <br />
+            Potato chips.
+          </h1>
+          <h4 class="text-sm mt-3 text-gray-500">
+            Satisfying savory Chinese meat sauce chips <br />
+            without any hard-to-fill ingredients
+          </h4>
+          <div class="flex gap-10 w-full items-center">
+            <div
+              class="p-[5px_6px] bg-black w-fit rounded-4xl flex items-center gap-6"
+            >
+              <div
+                class="bg-[#FBCC6A] rounded-full text-[25px] flex items-center justify-center w-fit h-[40px] aspect-square"
+              >
+                <i class="ri-shopping-basket-line"></i>
+              </div>
+              <h3
+                class="font-[Bebas] text-2xl w-fit mt-1 text-gray-100 uppercase pr-6 box"
+              >
+                add to cart
+              </h3>
+            </div>
+            <div
+              class="p-[10px_20px] bg-white border-[1px] border-gray-200 w-fit shadow-sm rounded-4xl flex items-center gap-3"
+            >
+              <i class="ri-subtract-fill text-xl"></i>
+              <span class="h-4 bg-gray-400 w-[1px] block"></span>
+              <span class="text-red-500 text-xl font-semibold">2</span>
+              <span class="h-4 bg-gray-400 w-[1px] block"></span>
+              <i class="ri-add-line text-xl"></i>
+            </div>
+          </div>
+          <div class="mt-5 flex items-center gap-10">
+            <div class="flex items-center gap-2">
+              <div
+                class="aspect-square border-[1px] border-[#3B714F] text-[#3B714F] flex items-center justify-center text-[20px] rounded-full h-[40px]"
+              >
+                <i class="ri-leaf-fill"></i>
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-sm text-lg text-black font-[Bebas]">
+                  100% Natural
+                </h3>
+                <p class="text-[10px] text-gray-700">No artificial flavors</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <div
+                class="aspect-square border-[1px] border-[#EAA037] text-[#EAA037] flex items-center justify-center text-[20px] rounded-full h-[40px]"
+              >
+                <i class="ri-fire-fill"></i>
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-sm text-lg text-black font-[Bebas]">
+                  Oven Grilled
+                </h3>
+                <p class="text-[10px] text-gray-700">Not fried</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-2">
+              <div
+                class="aspect-square border-[1px] border-[#DB2D38] text-[#DB2D38] flex items-center justify-center text-[20px] rounded-full h-[40px]"
+              >
+                <i class="ri-poker-hearts-fill"></i>
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-sm text-lg text-black font-[Bebas]">
+                  Tasty & crunchy
+                </h3>
+                <p class="text-[10px] text-gray-700">Irresistible bite</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex  items-center gap-10  relative">
+          <div class="w-[400px] shrink-0 h-full  relative ">
+            <img
+              class="h-[500px] drop-shadow-lg drop-shadow-black object-cover z-10 -translate-y-8 -rotate-5 absolute"
+              src="./assets/packet.png"
+              alt="chip packet"
+            />
+          </div>
+          <div class=" flex flex-col gap-10 ">
+            <div class="flex items-center gap-5">
+              <div
+                class="aspect-square  bg-[#3B714F] text-[#3B714F] flex items-center justify-center text-[20px] rounded-full h-[50px] p-1"
+              >
+                <img src="./assets/chilli.png" alt="chilli">
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-sm text-lg text-black font-[Bebas]">
+                  Extra Chilli
+                </h3>
+                <p class="text-[10px] text-gray-700">Zha jiang mian is crazy hot even when it's simplified</p>
+              </div>
+            </div>
+            <div class="flex   items-center gap-5">
+              <div
+                class="aspect-square bg-[#DA2C37] text-[#EAA037] flex items-center justify-center text-[20px] rounded-full h-[50px] p-1 "
+              >
+                <img src="./assets/beef.png" alt="beef" >
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-sm text-lg text-black font-[Bebas]">
+                  Beef flavor
+                </h3>
+                <p class="text-[10px] text-gray-700">Comes with a lot extra energy calories and oxizen</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-5">
+              <div
+                class="aspect-square  bg-[#F9B331] text-[#DB2D38] flex items-center justify-center text-[20px] rounded-full h-[50px] p-1"
+              >
+                <img src="./assets/fire.png" alt="fire">
+              </div>
+              <div class="flex flex-col">
+                <h3 class="text-sm text-lg text-black font-[Bebas]">
+                  Smokey sauce
+                </h3>
+                <p class="text-[10px] text-gray-700">The meat sauce kind of reminiscent of Chines</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-12">
+        <div class="w-full  flex items-center justify-between gap-4 h-[220px] bg-green-700 rounded-3xl p-[20px_25px]">
+          <div class=" flex flex-col gap-10">
+            <h1 class="uppercase text-white text-2xl font-[Bebas]">Our top <br> flavors</h1>
+            <div class="flex gap-5">
+              <div class="h-10 text-gray-700 aspect-square flex items-center justify-center bg-white/70 rotate-180 shadow-sm text-2xl w-fit rounded-full"><i class="ri-arrow-right-long-line"></i></div>
+              <div class="h-10 text-gray-800 aspect-square flex items-center justify-center bg-white shadow-sm text-2xl w-fit rounded-full"><i class="ri-arrow-right-long-line"></i></div>
+            </div>
+          </div>
+          <div class=" px-4 flex gap-4 rounded-2xl p-2 h-full bg-white">
+              <img class="w-32 h-48 -translate-y-6 " src="./assets/packet.png" alt="packet2">
+              <div class="flex flex-col gap-1 mt-2" >
+                <h2 class="font-semibold font-[Bebas] text-2xl tracking-wide [word-spacing:0.5rem]">Veggie stik</h2>
+                <h1 class="text-yellow-400"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i><span class="text-black pl-2 text-sm inline-block w-fit ">(4.5)</span></h1>
+                <h2 class="font-semibold text-gray-700 text-xl tracking-tighter">$12.50</h2>
+                <button class="cursor-pointer p-[4px_12px] text-sm whitespace-nowrap mt-2 rounded-2xl bg-red-500 text-white uppercase">Order Now<i class="ri-arrow-right-long-line pl-2"></i></button>
+              </div>
+          </div>
+
+          <div class=" px-4 flex gap-4 rounded-2xl p-2 h-full bg-white">
+              <img class="w-32 h-48 -translate-y-6 " src="./assets/packet2.png" alt="packet2">
+              <div class="flex flex-col gap-1 mt-2" >
+                <h2 class="font-semibold font-[Bebas] text-2xl tracking-wide [word-spacing:0.5rem]">Achari Rizz</h2>
+                <h1 class="text-yellow-400"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i><span class="text-black pl-2 text-sm inline-block w-fit ">(4.5)</span></h1>
+                <h2 class="font-semibold text-gray-700 text-xl tracking-tighter">$12.50</h2>
+                <button class="cursor-pointer p-[4px_12px] text-sm whitespace-nowrap mt-2 rounded-2xl bg-red-500 text-white uppercase">Order Now<i class="ri-arrow-right-long-line pl-2"></i></button>
+              </div>
+          </div>
+          <div class=" px-4 flex gap-4 rounded-2xl p-2 h-full bg-white">
+              <img class="w-32 h-48 -translate-y-6 " src="./assets/packet3.png" alt="packet2">
+              <div class="flex flex-col gap-1 mt-2" >
+                <h2 class="font-semibold font-[Bebas] text-2xl tracking-wide [word-spacing:0.5rem]">Mad Angle</h2>
+                <h1 class="text-yellow-400"><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-half-fill"></i><span class="text-black pl-2 text-sm inline-block w-fit ">(4.5)</span></h1>
+                <h2 class="font-semibold text-gray-700 text-xl tracking-tighter">$12.50</h2>
+                <button class="cursor-pointer p-[4px_12px] text-sm whitespace-nowrap mt-2 rounded-2xl bg-red-500 text-white uppercase">Order Now<i class="ri-arrow-right-long-line pl-2"></i></button>
+              </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
