@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <div id="form-wrapper">
+        <form>
+          <div class="form-nav">
+            <h1 id="form-nav-h1">Create User Card</h1>
+            <button type="button" class="cross"><span>x</span></button>
+          </div>
+          <input type="text" id="Name" placeholder="Enter Name" required />
+          <input
+            type="text"
+            id="Occupation"
+            placeholder="Enter Occupation"
+            required
+          />
+          <input type="text" id="imageUrl" placeholder="Image Url" required />
+          <button id="createUserCard" class="submit-btn " type="submit">Add Card</button>
+          <button id="updateUserCard" class="submit-btn" type="button">Update Card</button>
+        </form>
+      </div>
+      <div class="user-cards">
+        <nav>
+          <h1>User Cards</h1>
+          <button id="addCardBtn">Add New User</button>
+        </nav>
+        <div class="card-container">
+          <h1 id="zeroUserAlert">User Card Not Found.</h1>
+
+ 
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>

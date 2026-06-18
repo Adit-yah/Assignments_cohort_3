@@ -1,0 +1,273 @@
+:root {
+  --green: rgb(72, 225, 105);
+  --blackish: rgb(31, 31, 31);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+main {
+  height: 100%;
+  width: 100%;
+  background: #000;
+  position: relative;
+}
+
+#form-wrapper {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+
+form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  gap: 12px;
+  border-radius: 10px;
+  width: 350px;
+  background: rgba(23, 24, 23, 0.858);
+}
+
+form input {
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 11px;
+  outline: none;
+}
+
+form .submit-btn {
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: var(--green);
+  color: var(--blackish);
+  border: none;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+form #updateUserCard {
+  display: none;
+}
+
+form .form-nav {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0px 0px 10px 0px;
+}
+
+.cross {
+  border-radius: 100%;
+  height: 15px;
+  aspect-ratio: 1;
+  border: solid 1px white;
+  background: transparent;
+  color: white;
+  text-align: center;
+  font-weight: 100;
+  cursor: pointer;
+  font-size: 9px;
+  line-height: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cross span {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+
+form .form-nav {
+  display: flex;
+  align-items: center;
+}
+
+form h1 {
+  color: rgb(204, 204, 204);
+  font-size: 13px;
+  font-family: sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  word-spacing: 2px;
+  text-transform: uppercase;
+}
+
+main .user-cards {
+  width: 100%;
+  height: 100%;
+  padding: 10px 18px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+main .user-cards nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.607);
+  padding: 10px 12px;
+}
+
+main .user-cards nav h1 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.603);
+}
+
+main .user-cards nav button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 7px;
+  background: var(--green);
+  color: var(--blackish);
+  cursor: pointer;
+}
+
+main button:active {
+  transform: scale(0.97);
+}
+
+main .user-cards .card-container {
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  background: rgb(20, 20, 20);
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 13px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+main .user-cards .card-container h1 {
+  text-align: center;
+  font-size: 15px;
+  font-weight: 400;
+  color: #3e3d3d;
+  height: fit-content;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+main .user-cards .card-container .card {
+  border: 1px solid rgba(255, 255, 255, 0.292);
+  width: 100%;
+  height: 260px;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+main .user-cards .card-container .card .img {
+  width: 100%;
+  height: 75%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: none;
+}
+
+main .user-cards .card-container .card .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+main .user-cards .card-container .card h3 {
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: capitalize;
+  margin-top: 12px;
+  color: rgb(220, 220, 220);
+}
+
+main .user-cards .card-container .card h4 {
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: rgb(220, 220, 220);
+}
+
+main .user-cards .card .modification {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+main .user-cards .card .modification button {
+  padding: 2px 10px;
+  font-size: 10px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+main .user-cards .card .modification .edit-btn {
+  color: white;
+  background-color: rgb(6, 180, 6);
+}
+main .user-cards .card .modification .del-btn {
+  color: white;
+  background-color: rgb(180, 6, 6);
+}
