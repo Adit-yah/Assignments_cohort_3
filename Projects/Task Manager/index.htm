@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <div class="form-container">
+            <form id="new-task-form" >
+                <h1 class="form-heading">Create New Task</h1>
+                <div class="form-part1">
+                    <div class="form-input">
+                        <h1>Task Title</h1>
+                        <input type="text" required name="task-title" class="task-title" placeholder="Enter task title">
+                    </div>
+                    <div class="form-task-category">
+                        <h1>Category</h1>
+                        <button class="form-category" type="button">
+                            <h4>Normal</h4> 
+                            <span>▽</span>
+                        </button>
+                        <div class="form-category-list">
+                            <h3>Urgent</h3>
+                            <h3>Important</h3>
+                            <h3>Normal</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-part2">
+                    <h1>Task Description :</h1>
+                    <textarea class="task-description" required placeholder="Task Description"></textarea>
+                </div>
+                <div class="form-options">
+                    <button class="form-cancel-btn" type="button">Cancel</button>
+                    <button class="form-submit-btn" type="submit">Add Task</button>
+                </div>
+            </form>
+        </div>
+
+
+        <div class="planner-wrapper">
+            <nav>
+                <h1 id="app-name">Planner</h1>
+                <div class="nav-part-2">
+                    <div class="my-task">My Task</div>
+                    <div class="notes">Notes</div>
+                    <button class="theme-toggle">☀</button>
+                </div>
+            </nav>
+            <div class="my-task-container">
+                <div class="my-task-container-nav">
+                    <div class="search">
+                        <input type="text" name="search" id="serach" placeholder="search task by title">
+                    </div>
+                    <div class="task-nav-part-2">
+                        <div  class="status">
+                            <button data-toggle="true" class="filter-status">
+                                <h4>All</h4> 
+                                <span>▽</span>
+                            </button>
+                            <div class="status-list">
+                                <h3>Pending</h3>
+                                <h3>Completed</h3>
+                                <h3>All</h3>
+                            </div>
+                        </div>
+                        <div class="category">
+                            <button data-toggle="true" class="filter-category">
+                                <h4>Normal</h4> 
+                                <span>▽</span>
+                            </button>
+                            <div class="category-list">
+                                <h3>Urgent</h3>
+                                <h3>Important</h3>
+                                <h3>Normal</h3>
+                            </div>
+                        </div>
+                        <button class="task-add-btn">Add Task</button>
+                    </div>
+                </div>
+                <div class="task-container">
+            
+                </div>
+            </div>
+
+            <div class="task-footer">
+                <div class="task-analytics">
+                    <h3 class="peding-task">Pending : 1</h3>
+                    <h3 class="completed-task">Completed : 0</h3>
+                    <h3 class="total-task">Total : 1</h3>
+                </div>
+                <button class="clear-task-btn">Clear All</button>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
