@@ -1,10 +1,9 @@
+// Forms ( add task from and update task from )
 let addTaskBtn = document.querySelector(".task-add-btn");
 let formCancelBtn = document.querySelector(".form-cancel-btn");
-
 let formContainer = document.querySelector(".form-container");
 let formCategory = document.querySelector(".form-category");
 let formCategoryList = document.querySelector(".form-category-list");
-
 let form = document.querySelector("#new-task-form");
 let formInput = document.querySelector(".form-input input");
 let formDescription = document.querySelector(".task-description");
@@ -12,17 +11,30 @@ let formCategoryValue = document.querySelector(".form-category h4");
 let formHeading = document.querySelector(".form-heading");
 let formSubmitButton = document.querySelector(".form-submit-btn");
 
+// Tasks
 let taskContainer = document.querySelector(".task-container");
 let myTaskContainerNav = document.querySelector(".my-task-container-nav");
-
 let filterStatusBtn = document.querySelector(".filter-status");
 let statusList = document.querySelector(".status-list");
-
 let filterCategoryBtn = document.querySelector(".filter-category");
 let categoryList = document.querySelector(".category-list");
+let searchInput = document.querySelector('#search-input')
 
+// Footer
+let taskFooter = document.querySelector(".task-footer");
+let pendingCounter = document.querySelector('.pending-task')
+let completedCounter = document.querySelector('.completed-task')
+let totalCounter = document.querySelector('.total-task')
+let clearTaskBtn = document.querySelector('.clear-task-btn')
+
+// Task Array
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+
+// updating task index
 let currentEditIndex = null;
+
+// setTimeout Id for debounce logic
+let timeoutId = null
 
 addTaskBtn.addEventListener("click", () => {
   formContainer.style.display = "flex";
@@ -58,10 +70,18 @@ function renderTask() {
     taskContainer.removeChild(taskContainer.firstChild);
   }
 
-  if (tasks.length === 0) return;
+  if (tasks.length === 0) {
+  totalCounter.textContent = `Total : 0`
+  pendingCounter.textContent = `Pending : 0`
+  completedCounter.textContent = `Completed : 0`
+  return
+  };
 
   // 2. Create the fast memory fragment
   const fragment = document.createDocumentFragment();
+
+  let countPending = 0
+  let countCompleted = 0
   tasks.forEach((elem, idx) => {
     // 3. Create elements directly as objects (bypasses string parsing)
     const taskDiv = document.createElement("div");
@@ -122,12 +142,20 @@ function renderTask() {
 
     // 5. Push to the offscreen fragment
     fragment.appendChild(taskDiv);
+
+
+    // updating task Counters 
+    elem.status == 'pending' ? countPending += 1 : countCompleted += 1
+
   });
 
   // 6. Push everything to the screen in ONE single frame paint
   taskContainer.appendChild(fragment);
-}
+  totalCounter.textContent = `Total : ${tasks.length}`
+  pendingCounter.textContent = `Pending : ${countPending}`
+  completedCounter.textContent = `Completed : ${countCompleted}`
 
+}
 renderTask();
 
 form.addEventListener("submit", (e) => {
@@ -164,9 +192,8 @@ form.addEventListener("submit", (e) => {
   renderTask();
 });
 
-// using single listener to attach func on task buttons
+// using single listener to attach func on task buttons 
 taskContainer.addEventListener("click", (e) => {
-  console.log(e.target);
   if (!(e.target.localName === "button")) return;
 
   let task = e.target.closest(".task");
@@ -199,8 +226,8 @@ myTaskContainerNav.addEventListener("click", (e) => {
         if (e.target.localName == "h3") {
           filterStatusBtn.children[0].textContent = e.target.textContent;
           filterTasks(
-            filterStatusBtn.children[0].textContent,
-            filterCategoryBtn.children[0].textContent,
+            filterStatusBtn.children[0].textContent.toLowerCase(),
+            filterCategoryBtn.children[0].textContent.toLowerCase()
           );
           statusList.style.display = "none";
           filterStatusBtn.dataset.toggle = "true";
@@ -217,8 +244,8 @@ myTaskContainerNav.addEventListener("click", (e) => {
         if (e.target.localName == "h3") {
           filterCategoryBtn.children[0].textContent = e.target.textContent;
           filterTasks(
-            filterStatusBtn.children[0].textContent,
-            filterCategoryBtn.children[0].textContent,
+            filterStatusBtn.children[0].textContent.toLowerCase(),
+            filterCategoryBtn.children[0].textContent.toLowerCase()
           );
           categoryList.style.display = "none";
           filterCategoryBtn.dataset.toggle = "true";
@@ -229,6 +256,22 @@ myTaskContainerNav.addEventListener("click", (e) => {
     return;
   }
 });
+
+// Clear Function - Reset the task array
+clearTaskBtn.addEventListener('click' , ()=>{
+  tasks = []
+  localStorage.setItem('tasks' , JSON.stringify(tasks))
+  renderTask()
+})
+
+
+// Debounce logic
+searchInput.addEventListener('input' , (e)=>{
+  clearTimeout(timeoutId)
+  timeoutId = setTimeout(() => {
+   renderSearchTask(e.target.value.trim().replace(/\s+/g , " ").toLowerCase())
+  }, 300);
+})
 
 function mountToggleForm(taskIndex) {
   let originalTask = tasks[taskIndex];
@@ -260,6 +303,7 @@ function completeTask(taskIndex) {
   });
 
   renderTask();
+  filterTasks( filterStatusBtn.children[0].textContent.toLowerCase(), filterCategoryBtn.children[0].textContent.toLowerCase() )
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
@@ -280,19 +324,45 @@ function undoCompleteTask(taskIndex) {
 }
 
 function filterTasks(status, category) {
+  let tasks = document.querySelectorAll('.task')
+  tasks.forEach((elem)=>{
+   elem.style.display = 'none'
 
- let tasks = document.querySelectorAll('.task')
- tasks.forEach((elem)=>{
-  
-  if(elem.dataset.status === status && elem.dataset.category === category){
+   if( status == 'all status' && category == 'all category'){
     elem.style.display = 'block'
-  }
-  else if ( status === 'All' && 'Normal' === category){
+   }
+   else if ( elem.dataset.status.toLowerCase() == status  && elem.dataset.category.toLowerCase() == category ){
     elem.style.display = 'block'
-  }
-  else{
-    elem.style.display = 'none'
-  }
+   }
+   else if ( status == "all status"  && elem.dataset.category.toLowerCase() == category ){
+    elem.style.display = 'block'
+   }
+   else if ( elem.dataset.status.toLowerCase() == status  && category == "all category" ){
+    elem.style.display = 'block'
+   }
+   else{
+    return
+   }
  })
 }
 
+function renderSearchTask(query) {
+  let allTasksElem = document.querySelectorAll('.task') 
+  if(query.length == 0){
+    allTasksElem.forEach((elem)=>{elem.style.display = 'block'})
+    return
+  } 
+  allTasksElem.forEach((elem)=>{
+    if(elem.children[0].children[0].textContent.trim().replace(/\s+/g , " ").toLowerCase().includes(query)){
+      console.log(elem.children[0].children[0].textContent.trim().replace(/\s+/g , " ").toLowerCase().includes(query) , query , elem);
+      
+        filterTasks(
+            filterStatusBtn.children[0].textContent.toLowerCase(),
+            filterCategoryBtn.children[0].textContent.toLowerCase()
+          )
+    }
+    else{
+      elem.style.display = 'none'
+    }
+  })
+}
