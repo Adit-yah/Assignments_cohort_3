@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body class="">
-    <!-- <div class="login-form">
+    <div class="login-form">
         <form>
             <h1>Welcome Back</h1>
             <h3>Login to FinTrack Pro</h3>
@@ -18,7 +18,7 @@
             </div>
             <div class="login-user-password">
                 <label for="password">Password</label>
-                <input type="text" required name="password">
+                <input type="password" required name="password">
             </div>
             <button type="submit">Login</button>
             <div class="login-form-footer">
@@ -27,6 +27,7 @@
             </div>
         </form>
     </div>
+
     <div class="register-form">
         <form>
             <h1>Create Account</h1>
@@ -38,7 +39,7 @@
             </div>
             <div class="register-user-password">
                 <label for="password">Password</label>
-                <input type="text" required name="password">
+                <input type="password" required name="password">
             </div>
             <button type="submit">Register</button>
             <div class="register-form-footer">
@@ -46,7 +47,54 @@
                 <button type="button" class="register-btn">Login here</button>
             </div>
         </form>
-    </div> -->
+    </div>
+
+    <div class="transaction-form">
+        <form>
+          <div class="form-header">
+            <h1>Add Transaction</h1>
+            <div class="cancel-transaction" type="button">X</div>
+          </div>
+
+            <div class="transaction-type">
+                <label for="type">Type</label>
+                <select  id="type">
+                  <option value="expense">Expense</option>
+                  <option value="income">Income</option>
+                </select>
+            </div>
+            <div class="transaction-Description">
+                <label for="description">Description</label>
+                <input type="text" required id="descrition" placeholder="e.g Amazon, Salary, Coffee">
+            </div>
+            <div class="amount-date">
+            <div class="transaction-amount">
+                <label for="amount">Amount</label>
+                <input type="number" required id="amount" >
+            </div> 
+            <div class="transaction-date">
+                <label for="date">Date</label>
+                <input type="date" required id="date" >
+            </div> 
+          </div>
+          <div class="transaction-category">
+              <label for="category">Category</label>
+              <select id="category">
+                <option value="" disabled="" selected="">Select a category</option>
+                <option value="Food &amp; Dining">Food &amp; Dining</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Recharge &amp; Bills">Recharge &amp; Bills</option>
+                <option value="Petrol &amp; Auto">Petrol &amp; Auto</option>
+                <option value="Utilities">Utilities</option>
+                <option value="Salary">Salary</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Other">Other</option>
+              </select>
+          </div> 
+            <button type="submit">Save Transaction</button>
+        </form>
+    </div>
+
     <main>
       <div class="sidebar">
         <div class="sidebar-heading">
@@ -118,11 +166,12 @@
           <button class="add-transaction"><h3>Add Transaction</h3></button>
         </div>
       </div>
+
       <div class="content">
         <div class="content-nav">
           <div class="nav-part-1">
             <div class="line"></div>
-            <h3>user-name</h3>
+            <h3>Aditya</h3>
           </div>
           <button class="logout-btn">
             <svg
@@ -143,8 +192,8 @@
             <h3>Logout</h3>
           </button>
         </div>
+
         <div class="content-main">
-            
           <div class="heading">
             <h2>Financial Overview</h2>
             <p>Real-time tracking application</p>
@@ -251,13 +300,248 @@
               </div>
               <div class="card-four-dets">
                 <h4>Total Transaction</h4>
-                <p>$123213312321</p>
+                <p>1</p>
               </div>
             </div>
           </div>
 
+          <div class="main-parts">
+            <div class="part-one">
+  
+              <div class="data-dets">
+                <div class="data-analytics">
+                  <div class="data-graph-container">
+                    <h3>Cash Flow Analysis</h3>
+    
+                    <div class="data-graph">
+                      <div class="data-graph-heading">
+                        <div class="income">
+                          <div class="income-color"></div>
+                          <h4>Income</h4>
+                        </div>
+                        <div class="expense">
+                          <div class="expense-color"></div>
+                          <h4>Expense</h4>
+                        </div>
+                      </div>
+    
+                      <div class="data-graph-bar">
+                        <div class="y-axis-line"></div>
+    
+                        <div class="x-axis">
+                          <div class="x-axis-labels">
+                            <h4>1.0</h4>
+                            <div class="x-axis-line"></div>
+                          </div>
+                          <div class="x-axis-labels">
+                            <h4>0.9</h4>
+                            <div class="x-axis-line"></div>
+                          </div>
+                          <div class="x-axis-labels">
+                            <h4>0.8</h4>
+                            <div class="x-axis-line"></div>
+                          </div>
+                          <div class="x-axis-labels">
+                            <h4>0.7</h4>
+                            <div class="x-axis-line"></div>
+                          </div>
+                          <div class="x-axis-labels">
+                            <h4>0.6</h4>
+                            <div class="x-axis-line"></div>
+                          </div>
+                          <div class="x-axis-labels">
+                            <h4>0.5</h4>
+                            <div class="x-axis-line"></div>
+                          </div>
+                          <div class="x-axis-labels">
+                            <h4>0.4</h4>
+                            <div class="x-axis-line"></div>
+                          </div>
+                          <div class="x-axis-labels">
+                            <h4>0.3</h4>
+                            <div class="x-axis-line"></div>
+                          </div>
+                          <div class="x-axis-labels">
+                            <h4>0.2</h4>
+                            <div class="x-axis-line"></div>
+                          </div>
+                          <div class="x-axis-labels">
+                            <h4>0.1</h4>
+                            <div class="x-axis-line"></div>
+                          </div>
+                          <div class="x-axis-labels">
+                            <h4>0.0</h4>
+                            <div class="x-axis-line"></div>
+                          </div>
+    
+                          <div class="bars">
+                            <div class="income-bar"></div>
+                            <div class="expense-bar"></div>
+                          </div>
+                        </div>
+                      </div>
+    
+                      <div class="data-graph-footer">
+                        <h4>Income vs Expense</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+    
+              <div class="all-transaction">
+                <h3 class="heading">All Transactions</h3>
+    
+                <div class="query-field">
+                  <div class="query-field-nav">
+                    <div class="search-query">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      >
+                        <circle cx="11" cy="11" r="7" />
+                        <path d="m20 20-3.5-3.5" />
+                      </svg>
+                      <input type="text" placeholder="Search transaction.." />
+                    </div>
+    
+                    <div class="select-category">
+                      <select id="select-types">
+                        <option value="all">All Types</option>
+                        <option value="expense">Expense</option>
+                        <option value="income">Income</option>
+                      </select>
+                    </div>
+                  </div>
+    
+                  <div class="transaction-table">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>DATE</th>
+                          <th>DESCRIPTION</th>
+                          <th>CATEGORY</th>
+                          <th>AMOUNT</th>
+                          <th>ACTIONS</th>
+                        </tr>
+                      </thead>
+    
+                      <tbody>
+                        <tr>
+                          <td class="date">2026-06-29</td>
+                          <td class="description"><h1>salary</h1></td>
+                          <td class="category"><h3>Salary</h3></td>
+                          <td class="amount expense">-$100.00</td>
+                          <td class="actions">
+                            <div class="action-button">
+                              <button class="edit-btn">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="20"
+                                  height="20"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path d="M12 20h9" />
+                                  <path
+                                    d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"
+                                  />
+                                </svg>
+                              </button>
+                              <button class="del-btn">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="20"
+                                  height="20"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="2"
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <polyline points="3 6 5 6 21 6" />
+                                  <path d="M19 6l-1 14H6L5 6" />
+                                  <path d="M10 11v6" />
+                                  <path d="M14 11v6" />
+                                  <path d="M9 6V4h6v2" />
+                                </svg>
+                              </button>
+                            </div>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+  
+            </div>
+            <div class="part-two">
+
+                <div class="preferences">
+                  <h2>Preferences</h2>
+
+                  <div class="theme">
+                    <h4>Dark Mode</h4>
+                    <button class="toggle-btn">
+                      <div class="btn-circle"></div>
+                    </button>
+                  </div>
+
+                  <button class="task-clear-btn">Reset All Data</button>
+                </div>
+            </div>
+          </div>
+
+
         </div>
+
+        <div class="setting-content">
+          <div class="heading">
+            <h2>Settings</h2>
+            <p>Manage your account profile and app formatting.</p>
+          </div>
+
+          <div class="profile-card">
+            <h3 class="heading">Profile Details</h3>
+
+            <div class="user-inputs">
+              <div class="name-edit">
+                <label for="user-name">Full Name</label>
+                <input type="text" id="user-name" />
+              </div>
+
+              <div class="setting-currency">
+                <label for="currency">Primary Currency</label>
+                <select id="currency" required="">
+                  <option value="$">USD ($)</option>
+                  <option value="€">EUR (€)</option>
+                  <option value="£">GBP (£)</option>
+                  <option value="₹">INR (₹)</option>
+                  <option value="¥">JPY (¥)</option>
+                </select>
+              </div>
+            </div>
+
+            <button class="save-changes"><h3>Save Changes</h3></button>
+          </div>
+        </div>
+      
       </div>
     </main>
+  
+    <script src="script.js"></script>
   </body>
 </html>
