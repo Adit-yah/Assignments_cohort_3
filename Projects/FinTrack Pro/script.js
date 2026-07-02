@@ -411,7 +411,7 @@ function renderTransaction(array , currency) {
                           <td class="date">${transaction.date}</td>
                           <td class="description"><h1>${transaction.description}</h1></td>
                           <td class="category"><h3>${transaction.category}</h3></td>
-                          <td class="amount ${transaction.type === 'expense' ? 'expense' : 'income'}">${transaction.type === 'expense' ? '-' : '+'} ${currency+transaction.amount}</td>
+                          <td class="amount ${transaction.type === 'expense' ? 'expense' : 'income'}">${transaction.type === 'expense' ? '-' : '+'} ${currency + transaction.amount}</td>
                           <td class="actions">
                             <div class="action-button">
                               <button  class="edit-btn">
@@ -457,12 +457,12 @@ function renderTransaction(array , currency) {
   })
   currentBalance = currentIncome - currentExpense
   transactionContainer.innerHTML = tr
-  updateTransactionCards(currentBalance , currentIncome ,currentExpense , totalTransaction , currency)
+  updateTransactionCards(currentBalance , currentIncome ,currentExpense , totalTransaction , currency )
   handleChart( currentIncome ,currentExpense , currency)
 }
 
 function updateTransactionCards(currentBalance , currentIncome ,currentExpense , totalTransaction , currency){
-  BalanceCard.textContent = currency + currentBalance
+  BalanceCard.textContent =  (currentIncome - currentExpense)>= 0 ? (currency + Math.abs(currentBalance) ) : ('-' + currency + Math.abs(currentBalance))
   IncomeCard.textContent = currency + currentIncome
   ExpenseCard.textContent = currency + currentExpense
   TransactionCard.textContent = totalTransaction
