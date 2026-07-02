@@ -8,91 +8,158 @@
   </head>
   <body class="">
     <div class="login-form">
-        <form>
-            <h1>Welcome Back</h1>
-            <h3>Login to FinTrack Pro</h3>
+      <form>
+        <h1>Welcome Back</h1>
+        <h3>Login to FinTrack Pro</h3>
 
-            <div class="login-username">
-                <label for="username">Username</label>
-                <input type="text" required name="username">
-            </div>
-            <div class="login-user-password">
-                <label for="password">Password</label>
-                <input type="password" required name="password">
-            </div>
-            <button type="submit">Login</button>
-            <div class="login-form-footer">
-                <h4>Don't have an account ?</h4>
-                <button type="button" class="register-btn">Register here</button>
-            </div>
-        </form>
+        <div class="login-username">
+          <label for="username">Username</label>
+          <input type="text" autocomplete="username" required name="username" />
+        </div>
+        <div class="login-user-password">
+          <label for="password">Password</label>
+          <input type="password" required autocomplete="current-password" />
+        </div>
+        <button type="submit">Login</button>
+        <div class="login-form-footer">
+          <h4>Don't have an account ?</h4>
+          <button type="button" class="register-btn">Register here</button>
+        </div>
+      </form>
     </div>
 
     <div class="register-form">
-        <form>
-            <h1>Create Account</h1>
-            <h3>Join FinTrack Pro</h3>
+      <form>
+        <h1>Create Account</h1>
+        <h3>Join FinTrack Pro</h3>
 
-            <div class="register-username">
-                <label for="username">Choose a Username</label>
-                <input type="text" required name="username">
-            </div>
-            <div class="register-user-password">
-                <label for="password">Password</label>
-                <input type="password" required name="password">
-            </div>
-            <button type="submit">Register</button>
-            <div class="register-form-footer">
-                <h4>Already have an account ?</h4>
-                <button type="button" class="register-btn">Login here</button>
-            </div>
-        </form>
+        <div class="register-username">
+          <label for="username">Choose a Username</label>
+          <input type="text" autocomplete="username" required name="username" />
+        </div>
+        <div class="register-user-password">
+          <label for="password">Password</label>
+          <input type="password" autocomplete="current-password" required />
+        </div>
+        <button type="submit">Register</button>
+        <div class="register-form-footer">
+          <h4>Already have an account ?</h4>
+          <button type="button" class="login-btn">Login here</button>
+        </div>
+      </form>
     </div>
 
     <div class="transaction-form">
-        <form>
-          <div class="form-header">
-            <h1>Add Transaction</h1>
-            <div class="cancel-transaction" type="button">X</div>
-          </div>
+      <form>
+        <div class="form-header">
+          <h1>Add Transaction</h1>
+          <button
+            id="close-transaction-form"
+            class="cancel-transaction"
+            type="button"
+          >
+            X
+          </button>
+        </div>
 
-            <div class="transaction-type">
-                <label for="type">Type</label>
-                <select  id="type">
-                  <option value="expense">Expense</option>
-                  <option value="income">Income</option>
-                </select>
-            </div>
-            <div class="transaction-Description">
-                <label for="description">Description</label>
-                <input type="text" required id="descrition" placeholder="e.g Amazon, Salary, Coffee">
-            </div>
-            <div class="amount-date">
-            <div class="transaction-amount">
-                <label for="amount">Amount</label>
-                <input type="number" required id="amount" >
-            </div> 
-            <div class="transaction-date">
-                <label for="date">Date</label>
-                <input type="date" required id="date" >
-            </div> 
+        <div class="transaction-type">
+          <label for="type">Type</label>
+          <select id="type">
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+        </div>
+        <div class="transaction-Description">
+          <label for="description">Description</label>
+          <input
+            type="text"
+            required
+            id="description"
+            placeholder="e.g Amazon, Salary, Coffee"
+          />
+        </div>
+        <div class="amount-date">
+          <div class="transaction-amount">
+            <label for="amount">Amount</label>
+            <input type="number" required id="amount" />
           </div>
-          <div class="transaction-category">
-              <label for="category">Category</label>
-              <select id="category">
-                <option value="" disabled="" selected="">Select a category</option>
-                <option value="Food &amp; Dining">Food &amp; Dining</option>
-                <option value="Shopping">Shopping</option>
-                <option value="Recharge &amp; Bills">Recharge &amp; Bills</option>
-                <option value="Petrol &amp; Auto">Petrol &amp; Auto</option>
-                <option value="Utilities">Utilities</option>
-                <option value="Salary">Salary</option>
-                <option value="Entertainment">Entertainment</option>
-                <option value="Other">Other</option>
-              </select>
-          </div> 
-            <button type="submit">Save Transaction</button>
-        </form>
+          <div class="transaction-date">
+            <label for="date">Date</label>
+            <input type="date" required id="date" />
+          </div>
+        </div>
+        <div class="transaction-category">
+          <label for="category">Category</label>
+          <select id="category">
+            <option value="" disabled="" selected="">Select a category</option>
+            <option value="Food &amp; Dining">Food &amp; Dining</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Recharge &amp; Bills">Recharge &amp; Bills</option>
+            <option value="Petrol &amp; Auto">Petrol &amp; Auto</option>
+            <option value="Utilities">Utilities</option>
+            <option value="Salary">Salary</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <button type="submit">Save Transaction</button>
+      </form>
+    </div>
+    <div class="edit-transaction-form">
+      <form>
+        <div class="form-header">
+          <h1>Edit Transaction</h1>
+          <button
+            id="close-edit-transaction-form"
+            class="cancel-edit-transaction"
+            type="button"
+          >
+            X
+          </button>
+        </div>
+
+        <div class="edit-transaction-type">
+          <label for="type">Type</label>
+          <select id="edit-type">
+            <option value="expense">Expense</option>
+            <option value="income">Income</option>
+          </select>
+        </div>
+        <div class="edit-transaction-Description">
+          <label for="description">Description</label>
+          <input
+            type="text"
+            required
+            id="edit-description"
+            placeholder="e.g Amazon, Salary, Coffee"
+          />
+        </div>
+        <div class="edit-amount-date">
+          <div class="edit-transaction-amount">
+            <label for="amount">Amount</label>
+            <input type="number" required id="edit-amount" />
+          </div>
+          <div class="edit-transaction-date">
+            <label for="date">Date</label>
+            <input type="date" required id="edit-date" />
+          </div>
+        </div>
+        <div class="edit-transaction-category">
+          <label for="category">Category</label>
+          <select id="edit-category">
+            <option value="" disabled="" selected="">Select a category</option>
+            <option value="Food &amp; Dining">Food &amp; Dining</option>
+            <option value="Shopping">Shopping</option>
+            <option value="Recharge &amp; Bills">Recharge &amp; Bills</option>
+            <option value="Petrol &amp; Auto">Petrol &amp; Auto</option>
+            <option value="Utilities">Utilities</option>
+            <option value="Salary">Salary</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <button type="submit">Update Transaction</button>
+      </form>
     </div>
 
     <main>
@@ -118,7 +185,7 @@
         </div>
         <div class="sidebar-content">
           <div class="sidebar-navigate">
-            <div class="dashboard">
+            <button class="dashboard">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -136,8 +203,8 @@
                 <rect x="3" y="14" width="7" height="7" rx="1" />
               </svg>
               <h3>Dashboard</h3>
-            </div>
-            <div class="settings">
+            </button>
+            <button class="settings">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -161,9 +228,11 @@
                 <circle cx="12" cy="12" r="8" />
               </svg>
               <h3>Settings</h3>
-            </div>
+            </button>
           </div>
-          <button class="add-transaction"><h3>Add Transaction</h3></button>
+          <button id="toggle-transaction-form" class="add-transaction">
+            <h3>Add Transaction</h3>
+          </button>
         </div>
       </div>
 
@@ -173,7 +242,7 @@
             <div class="line"></div>
             <h3>Aditya</h3>
           </div>
-          <button class="logout-btn">
+          <button id="user-logout" class="logout-btn">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="15"
@@ -224,7 +293,7 @@
               </div>
               <div class="card-one-dets">
                 <h4>Current Balance</h4>
-                <p>$123213312321</p>
+                <p>0</p>
               </div>
             </div>
 
@@ -247,7 +316,7 @@
               </div>
               <div class="card-two-dets">
                 <h4>Total Income</h4>
-                <p>$123213312321</p>
+                <p>0</p>
               </div>
             </div>
 
@@ -270,7 +339,7 @@
               </div>
               <div class="card-three-dets">
                 <h4>Total Expense</h4>
-                <p>$123213312321</p>
+                <p>0</p>
               </div>
             </div>
 
@@ -300,19 +369,18 @@
               </div>
               <div class="card-four-dets">
                 <h4>Total Transaction</h4>
-                <p>1</p>
+                <p>0</p>
               </div>
             </div>
           </div>
 
           <div class="main-parts">
             <div class="part-one">
-  
               <div class="data-dets">
                 <div class="data-analytics">
                   <div class="data-graph-container">
                     <h3>Cash Flow Analysis</h3>
-    
+
                     <div class="data-graph">
                       <div class="data-graph-heading">
                         <div class="income">
@@ -324,63 +392,15 @@
                           <h4>Expense</h4>
                         </div>
                       </div>
-    
+
                       <div class="data-graph-bar">
                         <div class="y-axis-line"></div>
-    
+
                         <div class="x-axis">
-                          <div class="x-axis-labels">
-                            <h4>1.0</h4>
-                            <div class="x-axis-line"></div>
-                          </div>
-                          <div class="x-axis-labels">
-                            <h4>0.9</h4>
-                            <div class="x-axis-line"></div>
-                          </div>
-                          <div class="x-axis-labels">
-                            <h4>0.8</h4>
-                            <div class="x-axis-line"></div>
-                          </div>
-                          <div class="x-axis-labels">
-                            <h4>0.7</h4>
-                            <div class="x-axis-line"></div>
-                          </div>
-                          <div class="x-axis-labels">
-                            <h4>0.6</h4>
-                            <div class="x-axis-line"></div>
-                          </div>
-                          <div class="x-axis-labels">
-                            <h4>0.5</h4>
-                            <div class="x-axis-line"></div>
-                          </div>
-                          <div class="x-axis-labels">
-                            <h4>0.4</h4>
-                            <div class="x-axis-line"></div>
-                          </div>
-                          <div class="x-axis-labels">
-                            <h4>0.3</h4>
-                            <div class="x-axis-line"></div>
-                          </div>
-                          <div class="x-axis-labels">
-                            <h4>0.2</h4>
-                            <div class="x-axis-line"></div>
-                          </div>
-                          <div class="x-axis-labels">
-                            <h4>0.1</h4>
-                            <div class="x-axis-line"></div>
-                          </div>
-                          <div class="x-axis-labels">
-                            <h4>0.0</h4>
-                            <div class="x-axis-line"></div>
-                          </div>
-    
-                          <div class="bars">
-                            <div class="income-bar"></div>
-                            <div class="expense-bar"></div>
-                          </div>
+
                         </div>
                       </div>
-    
+
                       <div class="data-graph-footer">
                         <h4>Income vs Expense</h4>
                       </div>
@@ -388,10 +408,10 @@
                   </div>
                 </div>
               </div>
-    
+
               <div class="all-transaction">
                 <h3 class="heading">All Transactions</h3>
-    
+
                 <div class="query-field">
                   <div class="query-field-nav">
                     <div class="search-query">
@@ -409,9 +429,13 @@
                         <circle cx="11" cy="11" r="7" />
                         <path d="m20 20-3.5-3.5" />
                       </svg>
-                      <input type="text" placeholder="Search transaction.." />
+                      <input
+                        id="search-query-input"
+                        type="text"
+                        placeholder="Search transaction.."
+                      />
                     </div>
-    
+
                     <div class="select-category">
                       <select id="select-types">
                         <option value="all">All Types</option>
@@ -420,7 +444,7 @@
                       </select>
                     </div>
                   </div>
-    
+
                   <div class="transaction-table">
                     <table>
                       <thead>
@@ -432,8 +456,8 @@
                           <th>ACTIONS</th>
                         </tr>
                       </thead>
-    
-                      <tbody>
+
+                      <tbody id="transaction-container">
                         <tr>
                           <td class="date">2026-06-29</td>
                           <td class="description"><h1>salary</h1></td>
@@ -486,26 +510,22 @@
                   </div>
                 </div>
               </div>
-  
             </div>
             <div class="part-two">
+              <div class="preferences">
+                <h2>Preferences</h2>
 
-                <div class="preferences">
-                  <h2>Preferences</h2>
-
-                  <div class="theme">
-                    <h4>Dark Mode</h4>
-                    <button class="toggle-btn">
-                      <div class="btn-circle"></div>
-                    </button>
-                  </div>
-
-                  <button class="task-clear-btn">Reset All Data</button>
+                <div class="theme">
+                  <h4>Dark Mode</h4>
+                  <button class="toggle-btn">
+                    <div class="btn-circle"></div>
+                  </button>
                 </div>
+
+                <button class="task-clear-btn">Reset All Data</button>
+              </div>
             </div>
           </div>
-
-
         </div>
 
         <div class="setting-content">
@@ -538,10 +558,9 @@
             <button class="save-changes"><h3>Save Changes</h3></button>
           </div>
         </div>
-      
       </div>
     </main>
-  
+
     <script src="script.js"></script>
   </body>
 </html>

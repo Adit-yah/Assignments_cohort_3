@@ -10,7 +10,7 @@
     --primary-blue: #dbeafe;
     --primary-blue-text: #1e40af;
     --green-light: #dcfce7;
-    --green-text: #166534;
+    --green-text: #026d2bd1;
     --red-light: #fee2e2;
     --red-text: #991b1b;
     --black-shade:#86868693;
@@ -54,9 +54,14 @@ html, body {
 main{
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow-x: scroll;
+    overflow-y: hidden;
     position: relative;
     display: none;
+
+    &::-webkit-scrollbar{
+        display: none;
+}
 }
 
 
@@ -272,7 +277,7 @@ main{
     justify-content: center;
     backdrop-filter: blur(4px);
     background: var(--black-shade);
-    z-index: 99;
+    z-index: 990;
 }
 
 .transaction-form form{
@@ -305,6 +310,8 @@ main{
     color: var(--text-muted);
     font-size: 0.9rem;
     cursor: pointer;
+    background: none;
+    border: none;
 
     &:active{
         transform: scale(0.98);
@@ -330,6 +337,7 @@ main{
     border-radius: 5px;
     border: 1px solid var(--border-color);
     background: var(--bg-card); 
+    width: 100%;
 }
 
 .transaction-form form .transaction-type select{
@@ -338,7 +346,7 @@ main{
     outline: none;
     border-radius: 5px;
     border: 1px solid var(--border-color);
-    background: var(--bg-card); 
+    background: var(--bg-card);
 }
 
 .transaction-form form .transaction-Description input{
@@ -361,11 +369,11 @@ main{
 
 .transaction-form form .transaction-date input{
     padding: 8px 10px;
-    color: var(--text-dark);
+    color: var(--accent-black);
     outline: none;
     border-radius: 5px;
     border: 1px solid var(--border-color);
-    background: var(--bg-card);
+    background: var(--border-color);
     
 }
 
@@ -376,6 +384,137 @@ main{
 }
 
 .transaction-form button[type=submit] {
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1px solid var(--accent-black);
+    background: var(--accent-black);
+    color: var(--text-light);
+    margin-top: 8px;
+    cursor: pointer;
+
+    &:active{
+        transform: scale(0.98);
+    }
+}
+
+.edit-transaction-form{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+    background: var(--black-shade);
+    z-index: 990;
+}
+
+.edit-transaction-form form{
+    width: 370px;
+    height: fit-content;
+    background: var(--bg-card);
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    box-shadow: 0px 0px 4px 0.1px var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;    
+}
+
+.edit-transaction-form form .form-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.edit-transaction-form form .form-header h1{
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.edit-transaction-form form .form-header .cancel-edit-transaction{
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    cursor: pointer;
+    background: none;
+    border: none;
+
+    &:active{
+        transform: scale(0.98);
+    }
+}
+
+.edit-transaction-form form .edit-transaction-type, .edit-transaction-Description, .edit-transaction-amount ,.edit-transaction-date , .edit-transaction-category{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.edit-transaction-form form .edit-transaction-type, .edit-transaction-Description, .edit-transaction-amount ,.edit-transaction-date , .edit-transaction-category label{
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.edit-transaction-form form .edit-transaction-category select{
+    padding: 8px 10px;
+    color: var(--text-dark);
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card); 
+    width: 100%;
+}
+
+.edit-transaction-form form .edit-transaction-type select{
+    padding: 8px 10px;
+    color: var(--text-dark);
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+}
+
+.edit-transaction-form form .edit-transaction-Description input{
+    padding: 8px 10px;
+    color: var(--text-dark);
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+}
+
+.edit-transaction-form form .edit-transaction-amount input{
+    padding: 8px 10px;
+    color: var(--text-dark);
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-card);
+}
+
+.edit-transaction-form form .edit-transaction-date input{
+    padding: 8px 10px;
+    color: var(--accent-black);
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background: var(--border-color);
+    
+}
+
+.edit-transaction-form form .amount-date{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-transaction-form button[type=submit] {
     padding: 8px 10px;
     border-radius: 5px;
     border: 1px solid var(--accent-black);
@@ -454,21 +593,25 @@ main .sidebar .sidebar-content .sidebar-navigate .dashboard{
     padding: 5px 8px;
     border-radius: 5px;
     color: var(--text-dark);
+    border: none;
     background-color: var(--primary-blue);
+    cursor: pointer;
 
-    &:hover{
-        background-color: var(--primary-blue);
+    &:active{
+        transform: scale(0.98);
     }
 }
 
 main .sidebar .sidebar-content .sidebar-navigate .dashboard svg{
     height: 20px;
     width: 20px;
+    pointer-events: none;
 }
 
 main .sidebar .sidebar-content .sidebar-navigate .dashboard h3{
     font-size: 1.1rem;
     font-weight: 500;
+    pointer-events: none;
 }
 
 main .sidebar .sidebar-content .sidebar-navigate .settings{
@@ -480,21 +623,27 @@ main .sidebar .sidebar-content .sidebar-navigate .settings{
     border-radius: 5px;
     cursor: pointer;
     color: var(--text-dark);
+    border: none;
+    background: transparent;
+    cursor: pointer;
 
-    &:hover{
-        background-color: var(--primary-blue);
+    &:active{
+        transform: scale(0.98);
     }
 }
 
 main .sidebar .sidebar-content .sidebar-navigate .settings svg{
     height: 20px;
     width: 20px;
+    pointer-events: none;
 }
 
 main .sidebar .sidebar-content .sidebar-navigate .settings h3{
     font-size: 1.1rem;
     font-weight: 500;
+    pointer-events: none;
 }
+
 
 main .sidebar .sidebar-content .add-transaction{
     padding: 10px;
@@ -565,7 +714,7 @@ main .content .content-nav .logout-btn{
     }
 }
 
-main .content .content-main,.setting-content{
+main .content .content-main{
     width: 100%;
     height: calc(100% - 70px);
     overflow-x:hidden ;
@@ -872,7 +1021,7 @@ main .content .content-main .data-dets .data-analytics .data-graph-container .da
 
 main .content .content-main .data-dets .data-analytics .data-graph-container .data-graph .data-graph-bar .x-axis{
     width: 100%;
-    height: 100%;
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -923,7 +1072,7 @@ main .content .content-main .data-dets .data-analytics .data-graph-container .da
 }
 
 main .content .content-main .data-dets .data-analytics .data-graph-container .data-graph .bars .income-bar{
-    height: 203px;
+    height: 1px;
     width: 150px;
     background: var(--green-text);
     border: none;
@@ -931,7 +1080,7 @@ main .content .content-main .data-dets .data-analytics .data-graph-container .da
 }
 
 main .content .content-main .data-dets .data-analytics .data-graph-container .data-graph .bars .expense-bar{
-    height: 203px;
+    height: 1px;
     width: 150px;
     background: var(--red-text);
     border: none;
@@ -1097,8 +1246,16 @@ main .content .content-main .all-transaction .query-field table tbody tr .action
 main .content .content-main .all-transaction .query-field table tbody tr .actions .action-button .edit-btn{
     color: var(--primary-blue-text);
 }
+main .content .content-main .all-transaction .query-field table tbody tr .actions .action-button .edit-btn svg{
+    pointer-events: none;
+}
+
 main .content .content-main .all-transaction .query-field table tbody tr .actions .action-button .del-btn{
     color: var(--red-text);
+}
+
+main .content .content-main .all-transaction .query-field table tbody tr .actions .action-button .del-btn svg{
+    pointer-events: none;
 }
 
 
@@ -1177,7 +1334,21 @@ main .content .main-parts .part-two .preferences .task-clear-btn{
     }
 }
 
+main .content .setting-content{
+    width: 100%;
+    height: calc(100% - 70px);
+    overflow-x:hidden ;
+    overflow-y: scroll;
+    background: var(--bg-main);
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 20px;
 
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}
 main .content .setting-content .heading h2{
     font-size: 1.5rem;
     color: var(--text-dark);
@@ -1234,7 +1405,7 @@ main .content .setting-content .profile-card .user-inputs #user-name{
     border-radius: 5px;
     background: var(--bg-main);
     outline: none;
-    color: var(--text-muted);
+    color: var(--text-dark);
     box-shadow: inset 0px 0px 0.8px 0.01px var(--shadow-sm);
 }
 
@@ -1260,7 +1431,7 @@ main .content .setting-content .profile-card .setting-currency select{
     border-radius: 5px;
     background: var(--bg-main);
     outline: none;
-    color: var(--text-muted);
+    color: var(--text-dark);
     box-shadow: inset 0px 0px 0.8px 0.01px var(--shadow-sm); 
     cursor: pointer;
 }
