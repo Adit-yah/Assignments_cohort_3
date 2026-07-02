@@ -376,6 +376,7 @@ saveUserChangesBtn.addEventListener('click' ,()=>{
     currency : selectCurrency.value
   }
   loginUser = updatedUserData
+  username.textContent = loginUser.username;
   localStorage.setItem('loginUser' , JSON.stringify(updatedUserData))
   alert('user data UPDATED')
   updateUserTransaction(loginUser.id , loginUser.currency)
@@ -384,6 +385,8 @@ saveUserChangesBtn.addEventListener('click' ,()=>{
 
 function updateUserTransaction(userId , currency) {
   if(allTransactionsArr.length === 0){
+  updateTransactionCards(0 , 0 ,0 , 0 , currency)
+  handleChart( 0 , 0 , currency)
     transactionContainer.innerHTML = '' 
     return
   }
