@@ -168,6 +168,7 @@ registerForm.addEventListener("submit", (e) => {
     id: Date.now(),
     username: registerUser.value,
     password: registerUserPass.value,
+    currency: "$"
   });
   localStorage.setItem("registerUsers", JSON.stringify(registerUsers));
 
@@ -355,7 +356,6 @@ sideBarNavigation.addEventListener('click' ,(e)=>{
         break;
       }
     }
-    console.log(currencyIndex);
     
     userName.value = loginUser.username
     selectCurrency.selectedIndex = currencyIndex
