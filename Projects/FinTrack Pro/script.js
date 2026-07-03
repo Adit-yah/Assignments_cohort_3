@@ -136,7 +136,10 @@ loginForm.addEventListener("submit", (e) => {
         loginUsername.value = "";
         loginUserPass.value = "";
         return;
-      } else return;
+      } else{
+        alert('Invalid username & password')
+        return
+      };
     });
   } else {
     alert("Invalid username & password");
@@ -171,18 +174,20 @@ registerForm.addEventListener("submit", (e) => {
     currency: "$"
   });
   localStorage.setItem("registerUsers", JSON.stringify(registerUsers));
-
+  alert('user register successfully')
   registerFormContainer.style.display = "none";
   loginFormContainer.style.display = "flex";
 });
 
 registerFormToggle.addEventListener("click", () => {
-  loginForm.reset();
+  registerForm.reset();
+  loginForm.reset()
   loginFormContainer.style.display = "none";
   registerFormContainer.style.display = "flex";
 });
 
 loginFormToggle.addEventListener("click", () => {
+  loginForm.reset();
   registerForm.reset();
   registerFormContainer.style.display = "none";
   loginFormContainer.style.display = "flex";
