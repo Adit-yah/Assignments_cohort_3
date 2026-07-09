@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productivity Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <main
+      class="h-screen relative w-full flex flex-col bg-center bg-cover bg-[url('/assets/day.jpg')]"
+    >
+      <nav
+        class="w-full absolute top-0 left-0 h-12 bg-white/10 backdrop-blur-[5px] shadow-md flex items-center justify-between p-4"
+      >
+        <h1 class="font-semibold text-black text-[16px]">
+          Productivity Dashboard
+        </h1>
+        <button
+          class="cursor-pointer w-7 h-7 flex items-center justify-center border-[1px] border-black rounded-full"
+        >
+          <i class="ri-moon-fill"></i>
+        </button>
+      </nav>
+
+      <div class="h-full w-full flex items-center ">
+
+        <div
+          class="content-container  flex shrink-0 items-center justify-center grow"
+        >
+          <!-- weather -->
+          <div
+            class="weather-widget flex flex-col gap-2 border-[1px] mt-14 rounded-[3px] bg-transparent backdrop-blur-[2px] shadow-[0px_0px_1px_0.1px_white] border-white min-w-[200px] w-full max-w-[430px] sm:max-w-[670px] md:max-w-[920px] h-[420px] p-2"
+          >
+            <!-- weather nav -->
+            <div class="weather-nav p-2 w-full flex items-center justify-between">
+              <h1 class="text-lg font-semibold text-gray-800 text-shadow-lg">
+                Weather
+              </h1>
+              <div>
+                <input
+                  id="weather-query"
+                  class="py-1 px-4 bg-white/80 rounded-md outline-none text-gray-800"
+                  type="text"
+                  placeholder="Search of Cities"
+                />
+                <button id="weather-query-btn" class="p-1 text-sm border-[1.5px] border-white/30 rounded-md bg-white/30 cursor-pointer active:scale-98 text-shadow-lg shadow-md">search</button>
+              </div>
+            </div>
+            <!-- weather content -->
+            <div class=" h-full w-full flex items-center justify-center">
+              <h1>Search for cities</h1>
+            </div>
+          </div>
+  
+        </div>
+
+        <div class="h-[400px] [&::-webkit-scrollbar]:hidden gap-2 overflow-scroll mt-14 w-30 border-[1px_0px_1px_1px] backdrop-blur-[3px] shadow-md p-2 rounded-sm border-white/90 flex flex-col items-start">
+          <div class="flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/60 p-[5px] rounded-md backdrop-blur-[4px] text-center">
+            <video class="w-full h-10 border-[1px] border-white/60 rounded-md inset-shadow-md" src=""></video>
+            <h1  class="text-xs  text-shadow-lg">Weather Widget</h1>
+          </div>
+          <div class="flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/20 p-[5px] rounded-md backdrop-blur-[4px] text-center">
+            <video class="w-full h-10 border-[1px] border-white/60 rounded-md inset-shadow-md" src=""></video>
+            <h1  class="text-xs  text-shadow-lg">Weather Widget</h1>
+          </div>
+          <div class="flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/20 p-[5px] rounded-md backdrop-blur-[4px] text-center">
+            <video class="w-full h-10 border-[1px] border-white/60 rounded-md inset-shadow-md" src=""></video>
+            <h1  class="text-xs  text-shadow-lg">Weather Widget</h1>
+          </div>
+          <div class="flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/20 p-[5px] rounded-md backdrop-blur-[4px] text-center">
+            <video class="w-full h-10 border-[1px] border-white/60 rounded-md inset-shadow-md" src=""></video>
+            <h1  class="text-xs  text-shadow-lg">Weather Widget</h1>
+          </div>
+          <div class="flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/20 p-[5px] rounded-md backdrop-blur-[4px] text-center">
+            <video class="w-full h-10 border-[1px] border-white/60 rounded-md inset-shadow-md" src=""></video>
+            <h1  class="text-xs  text-shadow-lg">Weather Widget</h1>
+          </div>
+          <div class="flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/20 p-[5px] rounded-md backdrop-blur-[4px] text-center">
+            <video class="w-full h-10 border-[1px] border-white/60 rounded-md inset-shadow-md" src=""></video>
+            <h1  class="text-xs  text-shadow-lg">Weather Widget</h1>
+          </div>
+        </div>
+      </div>
+
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
