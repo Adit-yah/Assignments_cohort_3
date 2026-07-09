@@ -262,6 +262,7 @@ transactionForm.addEventListener("submit", (e) => {
   transactionDate.value = "";
   transactionCategory.selectedIndex = 0;
   transactionType.selectedIndex = 0;
+  transactionFormContainer.style.display = 'none'
 });
 
 editTransactionForm.addEventListener("submit", (e) => {
