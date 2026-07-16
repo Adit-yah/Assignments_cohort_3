@@ -1,9 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Productivity Dashboard</title>
+    <style type="text/tailwindcss">
+      @custom-variant dark (&:where(.dark, .dark *));
+    </style>
     <link
       href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css"
       rel="stylesheet"
@@ -12,81 +15,1146 @@
   </head>
   <body>
     <main
-      class="h-screen relative w-full flex flex-col bg-center bg-cover bg-[url('/assets/day.jpg')]"
+      class="h-screen relative w-full bg-center bg-cover"
     >
-      <nav
-        class="w-full absolute top-0 left-0 h-12 bg-white/10 backdrop-blur-[5px] shadow-md flex items-center justify-between p-4"
+      <!-- login-form -->
+      <div
+        id="login-form-container"
+        class="fixed hidden inset-0 flex items-center justify-center bg-transparent dark:bg-black/30"
       >
-        <h1 class="font-semibold text-black text-[16px]">
-          Productivity Dashboard
-        </h1>
-        <button
-          class="cursor-pointer w-7 h-7 flex items-center justify-center border-[1px] border-black rounded-full"
-        >
-          <i class="ri-moon-fill"></i>
-        </button>
-      </nav>
-
-      <div class="h-full w-full flex items-center ">
-
         <div
-          class="content-container  flex shrink-0 items-center justify-center grow"
+          class="w-full max-w-[370px] rounded-xl border border-white/20 bg-white/10 dark:bg-black/30 backdrop-blur-sm shadow-2xl p-6"
         >
-          <!-- weather -->
-          <div
-            class="weather-widget flex flex-col gap-2 border-[1px] mt-14 rounded-[3px] bg-transparent backdrop-blur-[2px] shadow-[0px_0px_1px_0.1px_white] border-white min-w-[200px] w-full max-w-[430px] sm:max-w-[670px] md:max-w-[920px] h-[420px] p-2"
-          >
-            <!-- weather nav -->
-            <div class="weather-nav p-2 w-full flex items-center justify-between">
-              <h1 class="text-lg font-semibold text-gray-800 text-shadow-lg">
-                Weather
-              </h1>
-              <div>
-                <input
-                  id="weather-query"
-                  class="py-1 px-4 bg-white/80 rounded-md outline-none text-gray-800"
-                  type="text"
-                  placeholder="Search of Cities"
-                />
-                <button id="weather-query-btn" class="p-1 text-sm border-[1.5px] border-white/30 rounded-md bg-white/30 cursor-pointer active:scale-98 text-shadow-lg shadow-md">search</button>
-              </div>
-            </div>
-            <!-- weather content -->
-            <div class=" h-full w-full flex items-center justify-center">
-              <h1>Search for cities</h1>
-            </div>
-          </div>
-  
-        </div>
+          <h1 class="text-2xl font-bold text-black/70 dark:text-white">
+            Welcome Back
+          </h1>
 
-        <div class="h-[400px] [&::-webkit-scrollbar]:hidden gap-2 overflow-scroll mt-14 w-30 border-[1px_0px_1px_1px] backdrop-blur-[3px] shadow-md p-2 rounded-sm border-white/90 flex flex-col items-start">
-          <div class="flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/60 p-[5px] rounded-md backdrop-blur-[4px] text-center">
-            <video class="w-full h-10 border-[1px] border-white/60 rounded-md inset-shadow-md" src=""></video>
-            <h1  class="text-xs  text-shadow-lg">Weather Widget</h1>
-          </div>
-          <div class="flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/20 p-[5px] rounded-md backdrop-blur-[4px] text-center">
-            <video class="w-full h-10 border-[1px] border-white/60 rounded-md inset-shadow-md" src=""></video>
-            <h1  class="text-xs  text-shadow-lg">Weather Widget</h1>
-          </div>
-          <div class="flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/20 p-[5px] rounded-md backdrop-blur-[4px] text-center">
-            <video class="w-full h-10 border-[1px] border-white/60 rounded-md inset-shadow-md" src=""></video>
-            <h1  class="text-xs  text-shadow-lg">Weather Widget</h1>
-          </div>
-          <div class="flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/20 p-[5px] rounded-md backdrop-blur-[4px] text-center">
-            <video class="w-full h-10 border-[1px] border-white/60 rounded-md inset-shadow-md" src=""></video>
-            <h1  class="text-xs  text-shadow-lg">Weather Widget</h1>
-          </div>
-          <div class="flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/20 p-[5px] rounded-md backdrop-blur-[4px] text-center">
-            <video class="w-full h-10 border-[1px] border-white/60 rounded-md inset-shadow-md" src=""></video>
-            <h1  class="text-xs  text-shadow-lg">Weather Widget</h1>
-          </div>
-          <div class="flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/20 p-[5px] rounded-md backdrop-blur-[4px] text-center">
-            <video class="w-full h-10 border-[1px] border-white/60 rounded-md inset-shadow-md" src=""></video>
-            <h1  class="text-xs  text-shadow-lg">Weather Widget</h1>
-          </div>
+          <p class="text-sm text-gray-600 dark:text-gray-300">
+            Login to continue...
+          </p>
+
+          <form id="login-form" class="mt-6 flex flex-col gap-4">
+            <div class="flex flex-col gap-1.5">
+              <label
+                class="text-sm font-medium text-gray-800/80 dark:text-gray-200"
+              >
+                Username
+              </label>
+
+              <input
+                type="text"
+                id="login-username"
+                autocomplete="username"
+                placeholder="Enter username"
+                required
+                class="w-full rounded-lg border border-white/20 bg-gray-200 dark:bg-white/10 px-3 py-2 text-gray-900 dark:text-white placeholder:text-gray-500/70 dark:placeholder:text-gray-400 outline-none transition"
+              />
+            </div>
+
+            <div class="flex flex-col gap-1.5">
+              <label
+                class="text-sm font-medium text-gray-800/80 dark:text-gray-200"
+              >
+                Password
+              </label>
+
+              <input
+                required
+                id="login-user-pass"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Enter password"
+                class="w-full rounded-lg border border-white/20 bg-gray-200 dark:bg-white/10 px-3 py-2 text-gray-900 dark:text-white placeholder:text-gray-500/70 dark:placeholder:text-gray-400 outline-none transition"
+              />
+            </div>
+
+            <!-- <div class="flex gap-2">
+              <div class="flex flex-col gap-1.5">
+                <label
+                  class="text-sm font-medium text-gray-800/80 dark:text-gray-200"
+                >
+                  City
+                </label>
+
+                <input
+                  required
+                  type="text"
+                  id="login-user-city"
+                  autocomplete="city"
+                  placeholder="Enter City"
+                  class="w-full rounded-lg border border-white/20 bg-gray-200 dark:bg-white/10 px-3 py-2 text-gray-900 dark:text-white placeholder:text-gray-500/70 dark:placeholder:text-gray-400 outline-none transition"
+                />
+              </div>
+
+              <div class="flex flex-col gap-1.5">
+                <label
+                  class="text-sm font-medium text-gray-800/80 dark:text-gray-200"
+                >
+                  Country
+                </label>
+
+                <input
+                  required
+                  type="text"
+                  id="login-user-country"
+                  autocomplete="country"
+                  placeholder="Enter Country"
+                  class="w-full rounded-lg border border-white/20 bg-gray-200 dark:bg-white/10 px-3 py-2 text-gray-900 dark:text-white placeholder:text-gray-500/70 dark:placeholder:text-gray-400 outline-none transition"
+                />
+              </div>
+            </div> -->
+
+            <button
+              class="mt-2 cursor-pointer rounded-lg bg-white dark:bg-white/10 border border-white/30 py-2 text-base font-semibold text-gray-900 dark:text-white transition-all duration-300 hover:bg-gray-100 dark:hover:bg-white/20"
+            >
+              Login
+            </button>
+
+            <div
+              class="mt-1 flex items-center justify-center gap-1 text-sm text-gray-600 dark:text-gray-300"
+            >
+              <span>Don't have an account?</span>
+
+              <button
+                type="button"
+                id="toggle-register"
+                class="font-semibold cursor-pointer text-blue-800 dark:text-sky-400 hover:text-blue-600 hover:dark:text-sky-300"
+              >
+                Register
+              </button>
+            </div>
+          </form>
         </div>
       </div>
 
+      <!-- register from  -->
+      <div
+        id="register-form-container"
+        class="fixed hidden inset-0 flex items-center justify-center bg-transparent dark:bg-black/30"
+      >
+        <div
+          class="w-full max-w-[370px] rounded-lg border border-white/20 bg-white/10 dark:bg-black/30 backdrop-blur-xs shadow-2xl p-5"
+        >
+          <h1 class="text-2xl font-bold text-black/70 dark:text-white">
+            Create Account
+          </h1>
+
+          <p class="text-xs text-gray-600 dark:text-gray-300">
+            Register to continue...
+          </p>
+
+          <form id="register-form" class="mt-4 flex flex-col gap-3">
+            <!-- Username -->
+            <div class="flex flex-col gap-1">
+              <label class="text-[14px] text-gray-800/80 dark:text-gray-200">
+                Username
+              </label>
+
+              <input
+                required
+                type="text"
+                id="register-username"
+                autocomplete="username"
+                placeholder="Enter username"
+                class="w-full rounded-md border border-white/20 bg-gray-200 dark:bg-white/10 px-3 py-1.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-500/70 dark:placeholder:text-gray-400 outline-none transition"
+              />
+            </div>
+
+            <!-- City & Country -->
+            <div class="flex gap-1.5">
+              <div class="flex flex-col gap-1 flex-1">
+                <label class="text-[14px] text-gray-800/80 dark:text-gray-200">
+                  City
+                </label>
+
+                <input
+                  required
+                  id="register-user-city"
+                  type="text"
+                  autocomplete="address-level2"
+                  placeholder="Enter city"
+                  class="w-full rounded-md border border-white/20 bg-gray-200 dark:bg-white/10 px-3 py-1.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-500/70 dark:placeholder:text-gray-400 outline-none transition"
+                />
+              </div>
+
+              <div class="flex flex-col gap-1 flex-1">
+                <label class="text-[14px] text-gray-800/80 dark:text-gray-200">
+                  Country
+                </label>
+
+                <input
+                  required
+                  id="register-user-country"
+                  type="text"
+                  autocomplete="country-name"
+                  placeholder=" Enter country"
+                  class="w-full rounded-md border border-white/20 bg-gray-200 dark:bg-white/10 px-3 py-1.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-500/70 dark:placeholder:text-gray-400 outline-none transition"
+                />
+              </div>
+            </div>
+
+            <!-- Password -->
+            <div class="flex flex-col gap-1">
+              <label class="text-[14px] text-gray-800/80 dark:text-gray-200">
+                Password
+              </label>
+
+              <input
+                required
+                id="register-user-pass"
+                type="password"
+                autocomplete="new-password"
+                placeholder="Enter password"
+                class="w-full rounded-md border border-white/20 bg-gray-200 dark:bg-white/10 px-3 py-1.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-500/70 dark:placeholder:text-gray-400 outline-none transition"
+              />
+            </div>
+
+            <!-- Confirm Password -->
+            <div class="flex flex-col gap-1">
+              <label class="text-[14px] text-gray-800/80 dark:text-gray-200">
+                Confirm Password
+              </label>
+
+              <input
+                required
+                id="register-user-confirm-pass"
+                type="password"
+                autocomplete="new-password"
+                placeholder="Re-enter password"
+                class="w-full rounded-md border border-white/20 bg-gray-200 dark:bg-white/10 px-3 py-1.5 text-sm text-gray-900 dark:text-white placeholder:text-gray-500/70 dark:placeholder:text-gray-400 outline-none transition"
+              />
+            </div>
+
+            <!-- Button -->
+            <button
+              class="mt-1 cursor-pointer rounded-md border border-white/30 bg-white dark:bg-white/10 py-1.5 text-sm font-semibold text-gray-900 dark:text-white transition-all duration-300 hover:bg-gray-100 dark:hover:bg-white/20"
+            >
+              Create Account
+            </button>
+
+            <!-- Footer -->
+            <div
+              class="mt-1 flex items-center justify-center gap-1 text-[14px] 00 dark:text-gray-300"
+            >
+              <span>Already have an account?</span>
+
+              <button
+                type="button"
+                id="toggle-login"
+                class="font-semibold cursor-pointer text-blue-800 dark:text-sky-400 hover:text-blue-600 dark:hover:text-sky-300"
+              >
+                Login
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- app content -->
+      <div
+        id="app-content"
+        class="h-screen relative w-full flex flex-col dark:bg-black/30"
+      >
+        <nav
+          class="w-full absolute top-0 left-0 h-12 bg-white/10 dark:bg-black/20 backdrop-blur-[5px] shadow-md flex items-center justify-between p-4"
+        >
+          <h1 class="font-semibold dark:text-white text-black text-[16px]">
+            Productivity Dashboard
+          </h1>
+          <div class="flex items-center gap-2">
+            <h1
+              id="local-date-time"
+              class="text-[14px] font-thick text-black/80 dark:text-white/80 text-shadow-lg"
+            >
+              00 : 00 AM/PM
+            </h1>
+            <button
+              id="toggle-btn"
+              class="flex h-8 w-8 cursor-pointer items-center justify-center rounded-md border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 text-gray-700 dark:text-gray-200 backdrop-blur-sm transition hover:bg-white/70 dark:hover:bg-white/10"
+            >
+              <i id="moon-icon" class="ri-moon-fill"></i>
+              <i id="sun-icon" class="ri-sun-fill hidden"></i>
+            </button>
+            <button
+              id="logout-btn"
+              class="flex cursor-pointer items-center gap-1.5 rounded-md border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 px-2.5 py-1.5 text-xs font-medium text-gray-700 dark:text-gray-200 hover:bg-white/70 dark:hover:bg-white/10 transition"
+            >
+              <i class="ri-logout-box-r-line text-sm"></i>
+              Logout
+            </button>
+          </div>
+        </nav>
+
+        <div class="h-full w-full flex items-center dark:text-white">
+          <div
+            class="content-container flex shrink-0 items-center justify-center grow dark:text-white"
+          >
+            <!-- weather -->
+            <div
+              class="weather-widget hidden flex flex-col gap-2 border-[1px] mt-14 rounded-[3px] bg-white/50 dark:bg-black/50 backdrop-blur-[2px] shadow-[0px_0px_1px_0.1px_white] dark:shadow-[0px_0px_1px_0.1px_black] border-white dark:border-black min-w-[200px] w-full max-w-[430px] sm:max-w-[670px] md:max-w-[920px] h-[420px] p-2"
+            >
+              <!-- Weather Nav -->
+              <div
+                class="weather-nav p-2 w-full flex items-center justify-between"
+              >
+                <h1
+                  class="text-lg font-semibold text-gray-800 dark:text-white text-shadow-lg"
+                >
+                  Weather
+                </h1>
+
+                <!-- Search -->
+                <div class="relative flex items-center gap-2">
+                  <input
+                    id="weather-query"
+                    class="w-64 py-1 px-4 rounded-md bg-gray-200 dark:bg-zinc-200 text-gray-800 dark:text-gray-700 outline-none shadow-md placeholder:text-gray-500"
+                    type="text"
+                    placeholder="Search cities..."
+                  />
+
+                  <button
+                    id="weather-query-btn"
+                    class="px-3 py-1 text-sm rounded-md border border-white/30 bg-white/30 dark:bg-white/10 dark:border-white/20 dark:text-white shadow-md backdrop-blur-sm cursor-pointer active:scale-95 transition"
+                  >
+                    Search
+                  </button>
+
+                  <!-- Search Suggestions -->
+                  <div
+                    id="search-suggestions"
+                    class="absolute top-9 hidden left-0 w-64 max-h-[200px] overflow-scroll [&::-webkit-scrollbar]:hidden rounded-lg border border-white/40 dark:border-white/15 bg-white dark:bg-black backdrop-blur-md shadow-xl z-50 block"
+                  >
+                    <!-- Suggestions -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Search for weather -->
+              <div
+                id="search-alert"
+                class="w-full grow flex items-center justify-center text-gray-700/70 dark:text-gray-200/70"
+              >
+                <h1>Search for weather</h1>
+              </div>
+
+              <!-- weather content -->
+              <div
+                id="weather-content"
+                class="flex p-2 items-center gap-2 w-full grow dark:text-white hidden"
+              >
+                <!-- left part -->
+                <div class="w-6/9 h-full flex flex-col gap-1 dark:text-white">
+                  <!-- part - 1 -->
+                  <div class="h-3/6 flex flex-col gap-1 dark:text-white">
+                    <div class="dark:text-white">
+                      <h1
+                        id="location-name"
+                        class="text-xl text-shadow-lg dark:text-white"
+                      >
+                        ..
+                      </h1>
+                      <h3
+                        id="chance-of-rain"
+                        class="text-[12px] text-shadow-lg text-gray-800 dark:text-gray-400"
+                      >
+                        Change of rain 0%
+                      </h3>
+                    </div>
+                    <div
+                      class="grow flex items-start justify-between mt-5 dark:text-white"
+                    >
+                      <div class="flex items-start dark:text-white">
+                        <div class="flex items-start dark:text-white">
+                          <img
+                            id="current-icon"
+                            class="h-25 -mt-2"
+                            src="//cdn.weatherapi.com/weather/64x64/day/113.png"
+                            alt="weather-img"
+                          />
+                          <h1
+                            id="current-temp"
+                            class="text-7xl text-gray-800 dark:text-gray-200 text-shadow-lg"
+                          >
+                            31
+                          </h1>
+                        </div>
+                        <div class="dark:text-white">
+                          <h3
+                            class="text-2xl mt-1 font-semibold mr-2 -ml-1 text-gray-800 dark:text-gray-200 text-shadow-lg"
+                          >
+                            °C
+                          </h3>
+                        </div>
+                        <div
+                          class="ml-1 text-shadow-lg text-gray-700 dark:text-gray-300"
+                        >
+                          <h1 id="current-precip">Precipitation : 0%</h1>
+                          <h1 id="current-humidity">Humidity : 0%</h1>
+                          <h1 id="current-wind">Wind : 0km/h</h1>
+                        </div>
+                      </div>
+
+                      <div class="flex flex-col items-end dark:text-white">
+                        <h1
+                          class="text-xl text-gray-800 text-shadow-lg dark:text-gray-200"
+                        >
+                          Weather
+                        </h1>
+                        <h2
+                          id="current-date-time"
+                          class="text-sm text-gray-700 text-shadow-lg dark:text-gray-300"
+                        >
+                          Day, Time
+                        </h2>
+                        <h2
+                          id="current-condition"
+                          class="text-sm text-gray-700 text-shadow-lg dark:text-gray-300"
+                        >
+                          Condition
+                        </h2>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- part 2 -->
+                  <div
+                    class="h-3/6 p-2 rounded-sm border-white/50 dark:border-white/30 border-1 shadow-xl flex flex-col gap-2"
+                  >
+                    <h1
+                      class="text-[14px] 00 dark:text-gray-100 font-bold text-shadow-lg"
+                    >
+                      TODAY'S FORECAST
+                    </h1>
+
+                    <div
+                      id="hourly-container"
+                      class="w-full grow mt-1 grid grid-cols-6 grid-rows-1 divide-x-[1.5px] divide-black/30 dark:divide-white/10"
+                    >
+                      <div
+                        class="flex flex-col gap-4 items-center justify-center dark:text-white"
+                      >
+                        <h3
+                          class="text-[12px] font-bold text-gray-700 dark:text-gray-200 text-shadow-sm"
+                        >
+                          Time
+                        </h3>
+                        <div
+                          class="flex items-center justify-center realtive aspect-square w-8 dark:text-white"
+                        >
+                          <img
+                            class="absolute w-25"
+                            src="//cdn.weatherapi.com/weather/64x64/night/113.png"
+                            alt="weather img"
+                          />
+                        </div>
+                        <h3
+                          class="text-[16px] text-shadow-sm font-semibold text-gray-900 dark:text-gray-200"
+                        >
+                          temperature
+                        </h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- right part -->
+                <div
+                  class="grow h-full bg-gray-100/10 dark:bg-transparent p-2 flex flex-col gap-1 dark:border-white/30 rounded-sm border-white/50 border-1"
+                >
+                  <h1
+                    class="h-1/10 text-xs text-gray-800 dark:text-gray-100 font-bold text-shadow-lg"
+                  >
+                    7-DAY FORECAST
+                  </h1>
+                  <div
+                    id="daily-container"
+                    class="h-[300px] [&::-webkit-scrollbar]:hidden overflow-scroll items-start grid grid-cols-1 gird-rows-7 divide-y-[1.5px] divide-black/30 dark:divide-white/30"
+                  >
+                    <div
+                      class="flex items-center justify-between py-3 dark:text-white"
+                    >
+                      <h2
+                        class="w-12 text-xs font-semibold uppercase text-gray-700 dark:text-gray-200"
+                      >
+                        Today
+                      </h2>
+
+                      <div
+                        class="flex items-center gap-2 flex-1 justify-center dark:text-white"
+                      >
+                        <img
+                          class="w-8 h-8"
+                          src="//cdn.weatherapi.com/weather/64x64/day/113.png"
+                          alt="Sunny"
+                        />
+                        <span
+                          class="text-sm font-medium text-gray-800 dark:text-gray-200"
+                          >condition</span
+                        >
+                      </div>
+
+                      <h3
+                        class="text-sm font-semibold dark:text-gray-200 text-gray-900"
+                      >
+                        <span>T°</span>/<span
+                          class="text-gray-600 dark:text-gray-300/70"
+                          >T°</span
+                        >
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- todo list -->
+            <div
+              class="flex hidden flex-col gap-2 border-[1px] mt-14 rounded-[3px] bg-white/50 dark:bg-black/50 backdrop-blur-[2px] shadow-[0px_0px_1px_0.1px_white] dark:shadow-[0px_0px_1px_0.1px_black] border-white dark:border-black min-w-[200px] w-full max-w-[430px] sm:max-w-[670px] md:max-w-[920px] h-[420px] p-4"
+            >
+              <div
+                class="flex items-center justify-between gap-3 flex-wrap border-b border-black/10 dark:border-white/10 pb-3"
+              >
+                <!-- Left -->
+                <div>
+                  <h1
+                    class="text-xl font-semibold text-gray-800 dark:text-gray-100 flex items-center gap-2"
+                  >
+                    Todo List
+                  </h1>
+                </div>
+
+                <!-- Right -->
+                <div class="flex items-center gap-2">
+                  <div class="flex items-center gap-2">
+                    <button
+                      id="toggle-add-task-form"
+                      class="flex cursor-pointer items-center gap-2 rounded-lg border border-white/30 dark:border-white/10 bg-white/40 dark:bg-white/5 px-3 py-2 text-xs font-medium text-gray-700 dark:text-gray-200 transition hover:bg-white/70 dark:hover:bg-white/10"
+                    >
+                      <i class="ri-add-line text-base"></i>
+                      Add Task
+                    </button>
+
+                    <button
+                      id="delete-all-task-btn"
+                      class="flex cursor-pointer items-center gap-2 rounded-lg border border-white/30 dark:border-white/10 bg-white/40 dark:bg-white/5 px-3 py-2 text-xs font-medium text-gray-700 dark:text-gray-200 transition hover:bg-white/70 dark:hover:bg-white/10"
+                    >
+                      <i class="ri-delete-bin-6-line text-base"></i>
+                      Delete All
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Task List -->
+              <div
+                id="task-list"
+                class="grow flex flex-col gap-1 overflow-scroll [&::-webkit-scrollbar]:hidden"
+              ></div>
+
+              <!-- Add task -->
+              <div
+                id="addtask-container"
+                class="fixed hidden inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-md"
+              >
+                <div
+                  class="w-[350px] overflow-hidden rounded-2xl border border-white/40 dark:border-white/10 bg-[#f8f8f8]/90 dark:bg-[#18181b]/90 shadow-[0_10px_40px_rgba(0,0,0,.15)] backdrop-blur-xl"
+                >
+                  <!-- Header -->
+                  <div
+                    class="flex items-center gap-3 border-b border-black/5 dark:border-white/10 bg-white/70 dark:bg-white/5 px-5 py-4"
+                  >
+                    <div
+                      class="grid h-10 w-10 place-items-center rounded-xl border border-black/5 dark:border-white/10 bg-white shadow-sm dark:bg-white/5"
+                    >
+                      <i
+                        class="ri-add-line text-lg text-gray-700 dark:text-gray-200"
+                      ></i>
+                    </div>
+
+                    <div>
+                      <h1
+                        class="text-lg font-semibold text-gray-800 dark:text-white"
+                      >
+                        Add Task
+                      </h1>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">
+                        Create a new task
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Form -->
+                  <form class="space-y-3 p-5">
+                    <input
+                      id="addtask-title"
+                      required
+                      type="text"
+                      placeholder="Task title"
+                      class="w-full rounded-xl border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition focus:border-black/20 dark:bg-white/5 dark:text-white"
+                    />
+
+                    <textarea
+                      id="addtask-description"
+                      required
+                      rows="3"
+                      placeholder="Description..."
+                      class="w-full overflow-scroll [&::-webkit-scrollbar]:hidden resize-none rounded-xl border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition focus:border-black/20 dark:bg-white/5 dark:text-white"
+                    ></textarea>
+
+                    <div class="grid grid-cols-2 gap-3">
+                      <input
+                        id="addtask-date"
+                        required
+                        type="date"
+                        class="rounded-xl border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none dark:bg-white/5 dark:text-white"
+                      />
+
+                      <select
+                        id="addtask-category"
+                        required
+                        class="rounded-xl border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none dark:bg-white/5 dark:text-white"
+                      >
+                        <option value="normal">Normal</option>
+                        <option value="important">Important</option>
+                      </select>
+                    </div>
+                    <div class="flex justify-end gap-2 pt-2">
+                      <button
+                        type="button"
+                        id="cancel-add-task-form"
+                        class="rounded-xl border cursor-pointer border-black/5 dark:border-white/10 bg-white px-4 py-2 text-sm shadow-sm transition hover:bg-gray-100 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                      >
+                        Cancel
+                      </button>
+
+                      <button
+                        type="submit"
+                        class="rounded-xl border cursor-pointer border-black/10 dark:border-white/10 bg-[#efefef] px-4 py-2 text-sm font-medium shadow-sm transition hover:bg-[#e5e5e5] dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
+                      >
+                        Add Task
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Edit task -->
+              <div
+                id="edit-task-form-container"
+                class="fixed hidden inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-md"
+              >
+                <div
+                  class="w-[350px] overflow-hidden rounded-2xl border border-white/40 dark:border-white/10 bg-[#f8f8f8]/90 dark:bg-[#18181b]/90 shadow-[0_10px_40px_rgba(0,0,0,.15)] backdrop-blur-xl"
+                >
+                  <!-- Header -->
+                  <div
+                    class="flex items-center gap-3 border-b border-black/5 dark:border-white/10 bg-white/70 dark:bg-white/5 px-5 py-4"
+                  >
+                    <div
+                      class="grid h-10 w-10 place-items-center rounded-xl border border-black/5 dark:border-white/10 bg-white shadow-sm dark:bg-white/5"
+                    >
+                      <i
+                        class="ri-add-line text-lg text-gray-700 dark:text-gray-200"
+                      ></i>
+                    </div>
+
+                    <div>
+                      <h1
+                        class="text-lg font-semibold text-gray-800 dark:text-white"
+                      >
+                        Edit Task
+                      </h1>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">
+                        Update old task
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Form -->
+                  <form class="space-y-3 p-5">
+                    <input
+                      type="text"
+                      id="edittask-title"
+                      placeholder="Task title"
+                      class="w-full rounded-xl border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition focus:border-black/20 dark:bg-white/5 dark:text-white"
+                    />
+
+                    <textarea
+                      rows="3"
+                      id="edittask-description"
+                      placeholder="Description..."
+                      class="w-full resize-none overflow-scroll [&::-webkit-scrollbar]:hidden rounded-xl border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition focus:border-black/20 dark:bg-white/5 dark:text-white"
+                    ></textarea>
+
+                    <div class="grid grid-cols-2 gap-3">
+                      <input
+                        id="edittask-date"
+                        type="date"
+                        class="rounded-xl cursor-pointer border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none dark:bg-white/5 dark:text-white"
+                      />
+
+                      <select
+                        id="edittask-category"
+                        class="rounded-xl border cursor-pointer border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none dark:bg-white/5 dark:text-white"
+                      >
+                        <option value="normal">Normal</option>
+                        <option value="important">Important</option>
+                      </select>
+                    </div>
+
+                    <div class="flex justify-end gap-2 pt-2">
+                      <button
+                        id="cancel-edit-task-form"
+                        type="button"
+                        class="rounded-xl cursor-pointer border border-black/5 dark:border-white/10 bg-white px-4 py-2 text-sm shadow-sm transition hover:bg-gray-100 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                      >
+                        Cancel
+                      </button>
+
+                      <button
+                        id="upadte-edit-task"
+                        type="submit"
+                        class="rounded-xl cursor-pointer border border-black/10 dark:border-white/10 bg-[#efefef] px-4 py-2 text-sm font-medium shadow-sm transition hover:bg-[#e5e5e5] dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
+                      >
+                        Update Task
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- daily planner -->
+            <div
+              class="flex hidden flex-col gap-2 border border-white dark:border-black mt-14 rounded-[3px] bg-white/50 dark:bg-black/50 backdrop-blur-[2px] shadow-[0px_0px_1px_0.1px_white] dark:shadow-[0px_0px_1px_0.1px_black] min-w-[200px] w-full max-w-[430px] sm:max-w-[670px] md:max-w-[920px] h-[420px] p-4"
+            >
+              <!-- Header -->
+              <div class="flex items-center justify-between">
+                <div>
+                  <h1
+                    class="text-lg font-semibold text-gray-800 dark:text-white"
+                  >
+                    Daily Planner
+                  </h1>
+
+                  <p class="text-xs text-gray-600 dark:text-gray-400">
+                    Plan your day
+                  </p>
+                </div>
+
+                <div class="flex gap-2">
+                  <button
+                    id="adddaily-plan-btn"
+                    class="flex cursor-pointer items-center gap-1 rounded-md border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 px-3 py-2 text-xs text-gray-700 dark:text-gray-200 hover:bg-white/70 dark:hover:bg-white/10 transition"
+                  >
+                    <i class="ri-add-line"></i>
+                    Add
+                  </button>
+
+                  <button
+                    id="reset-daily-plain-btn"
+                    class="flex cursor-pointer items-center gap-1 rounded-md border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 px-3 py-2 text-xs text-gray-700 dark:text-gray-200 hover:bg-white/70 dark:hover:bg-white/10 transition"
+                  >
+                    <i class="ri-refresh-line"></i>
+                    Reset
+                  </button>
+                </div>
+              </div>
+
+              <!-- Planner List -->
+              <div
+                id="planner-container"
+                class="grow mt-2 overflow-y-auto [&::-webkit-scrollbar]:hidden flex flex-col gap-3 pr-1"
+              ></div>
+
+              <!-- Add / Edit Planner Modal -->
+              <div
+                id="addplanner-container"
+                class="fixed hidden inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-md"
+              >
+                <div
+                  class="w-[350px] overflow-hidden rounded-2xl border border-white/40 dark:border-white/10 bg-[#f8f8f8]/90 dark:bg-[#18181b]/90 shadow-[0_10px_40px_rgba(0,0,0,.15)] backdrop-blur-xl"
+                >
+                  <!-- Header -->
+                  <div
+                    class="flex items-center gap-3 border-b border-black/5 dark:border-white/10 bg-white/70 dark:bg-white/5 px-5 py-4"
+                  >
+                    <div
+                      class="grid h-10 w-10 place-items-center rounded-xl border border-black/5 dark:border-white/10 bg-white shadow-sm dark:bg-white/5"
+                    >
+                      <i
+                        class="ri-calendar-todo-line text-lg text-gray-700 dark:text-gray-200"
+                      ></i>
+                    </div>
+
+                    <div>
+                      <h1
+                        class="text-lg font-semibold text-gray-800 dark:text-white"
+                      >
+                        Add Plan
+                      </h1>
+
+                      <p class="text-xs text-gray-500 dark:text-gray-400">
+                        Schedule your day
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Form -->
+                  <form class="space-y-3 p-5">
+                    <input
+                      id="addplanner-title"
+                      required
+                      type="text"
+                      placeholder="Plan title"
+                      class="w-full rounded-xl border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition focus:border-black/20 dark:bg-white/5 dark:text-white"
+                    />
+
+                    <textarea
+                      id="addplanner-description"
+                      required
+                      rows="3"
+                      placeholder="Description..."
+                      class="w-full resize-none overflow-hidden rounded-xl border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition focus:border-black/20 dark:bg-white/5 dark:text-white"
+                    ></textarea>
+
+                    <input
+                      id="addplanner-time"
+                      required
+                      type="time"
+                      class="w-full rounded-xl border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none dark:bg-white/5 dark:text-white"
+                    />
+
+                    <div class="flex justify-end gap-2 pt-2">
+                      <button
+                        id="cancel-add-planner-form"
+                        type="button"
+                        class="rounded-xl border cursor-pointer border-black/5 dark:border-white/10 bg-white px-4 py-2 text-sm shadow-sm transition hover:bg-gray-100 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                      >
+                        Cancel
+                      </button>
+
+                      <button
+                        type="submit"
+                        class="rounded-xl border cursor-pointer border-black/10 dark:border-white/10 bg-[#efefef] px-4 py-2 text-sm font-medium shadow-sm transition hover:bg-[#e5e5e5] dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
+                      >
+                        Save Plan
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Edit Planner Modal -->
+              <div
+                id="editplanner-container"
+                class="fixed hidden inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-md"
+              >
+                <div
+                  class="w-[350px] overflow-hidden rounded-2xl border border-white/40 dark:border-white/10 bg-[#f8f8f8]/90 dark:bg-[#18181b]/90 shadow-[0_10px_40px_rgba(0,0,0,.15)] backdrop-blur-xl"
+                >
+                  <!-- Header -->
+                  <div
+                    class="flex items-center gap-3 border-b border-black/5 dark:border-white/10 bg-white/70 dark:bg-white/5 px-5 py-4"
+                  >
+                    <div
+                      class="grid h-10 w-10 place-items-center rounded-xl border border-black/5 dark:border-white/10 bg-white shadow-sm dark:bg-white/5"
+                    >
+                      <i
+                        class="ri-edit-2-line text-lg text-gray-700 dark:text-gray-200"
+                      ></i>
+                    </div>
+
+                    <div>
+                      <h1
+                        class="text-lg font-semibold text-gray-800 dark:text-white"
+                      >
+                        Edit Plan
+                      </h1>
+
+                      <p class="text-xs text-gray-500 dark:text-gray-400">
+                        Update your planner
+                      </p>
+                    </div>
+                  </div>
+
+                  <!-- Form -->
+                  <form id="editplanner-form" class="space-y-3 p-5">
+                    <input
+                      id="editplanner-title"
+                      required
+                      type="text"
+                      placeholder="Plan title"
+                      class="w-full rounded-xl border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition focus:border-black/20 dark:bg-white/5 dark:text-white"
+                    />
+
+                    <textarea
+                      id="editplanner-description"
+                      required
+                      rows="3"
+                      placeholder="Description..."
+                      class="w-full resize-none overflow-hidden rounded-xl border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none transition focus:border-black/20 dark:bg-white/5 dark:text-white"
+                    ></textarea>
+
+                    <input
+                      id="editplanner-time"
+                      required
+                      type="time"
+                      class="w-full rounded-xl border border-black/5 dark:border-white/10 bg-white px-4 py-2.5 text-sm shadow-sm outline-none dark:bg-white/5 dark:text-white"
+                    />
+
+                    <div class="flex justify-end gap-2 pt-2">
+                      <button
+                        id="cancel-edit-planner-form"
+                        type="button"
+                        class="rounded-xl border cursor-pointer border-black/5 dark:border-white/10 bg-white px-4 py-2 text-sm shadow-sm transition hover:bg-gray-100 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                      >
+                        Cancel
+                      </button>
+
+                      <button
+                        type="submit"
+                        class="rounded-xl border cursor-pointer border-black/10 dark:border-white/10 bg-[#efefef] px-4 py-2 text-sm font-medium shadow-sm transition hover:bg-[#e5e5e5] dark:bg-white/10 dark:text-white dark:hover:bg-white/15"
+                      >
+                        Save Changes
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- Timer -->
+            <div
+              class="flex hidden flex-col gap-3 border border-white dark:border-black mt-14 rounded-[3px] bg-white/50 dark:bg-black/50 backdrop-blur-[2px] shadow-[0px_0px_1px_0.1px_white] dark:shadow-[0px_0px_1px_0.1px_black] min-w-[200px] w-full max-w-[430px] sm:max-w-[670px] md:max-w-[920px] h-[420px] p-4"
+            >
+              <!-- Header -->
+              <div class="flex items-center justify-between">
+                <div>
+                  <h1
+                    class="text-lg font-semibold text-gray-800 dark:text-white"
+                  >
+                    Pomodoro Timer
+                  </h1>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">
+                    Stay focused
+                  </p>
+                </div>
+
+                <button
+                  id="pomodoro-reset-btn"
+                  class="flex items-center cursor-pointer gap-1 rounded-md border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 px-3 py-2 text-xs text-gray-700 dark:text-gray-200 hover:bg-white/70 dark:hover:bg-white/10 transition"
+                >
+                  <i class="ri-refresh-line"></i>
+                  Reset
+                </button>
+              </div>
+
+              <!-- Mode -->
+              <div class="flex justify-center gap-2 mt-2">
+                <button
+                  id="focus-mode"
+                  class="px-4 py-2 cursor-pointer rounded-lg bg-white dark:bg-white/10 border border-white/20 dark:border-white/10 text-sm font-medium"
+                >
+                  Focus
+                </button>
+
+                <button
+                  id="short-break-mode"
+                  class="px-4 py-2 cursor-pointer rounded-lg bg-white/50 dark:bg-white/5 border border-white/20 dark:border-white/10 text-sm"
+                >
+                  Short Break
+                </button>
+
+                <button
+                  id="long-break-mode"
+                  class="px-4 py-2 cursor-pointer rounded-lg bg-white/50 dark:bg-white/5 border border-white/20 dark:border-white/10 text-sm"
+                >
+                  Long Break
+                </button>
+              </div>
+
+              <!-- Timer -->
+              <div class="grow flex flex-col items-center justify-center">
+                <div
+                  id="pomodoro-time"
+                  class="text-6xl sm:text-7xl font-bold tracking-wider text-gray-800 dark:text-white"
+                >
+                  25:00
+                </div>
+
+                <p
+                  id="pomodoro-status"
+                  class="mt-3 text-sm text-gray-500 dark:text-gray-400"
+                >
+                  Ready to focus
+                </p>
+              </div>
+
+              <!-- Controls -->
+              <div class="flex justify-center gap-3">
+                <button
+                  id="pomodoro-start-btn"
+                  class="flex items-center cursor-pointer gap-2 rounded-lg border border-white/20 dark:border-white/10 bg-white dark:bg-white/10 px-5 py-2.5 text-sm shadow-sm hover:bg-gray-100 dark:hover:bg-white/20 transition"
+                >
+                  <i class="ri-play-fill"></i>
+                  Start
+                </button>
+
+                <button
+                  id="pomodoro-pause-btn"
+                  class="flex items-center gap-2 cursor-pointer rounded-lg border border-white/20 dark:border-white/10 bg-white dark:bg-white/10 px-5 py-2.5 text-sm shadow-sm hover:bg-gray-100 dark:hover:bg-white/20 transition"
+                >
+                  <i class="ri-pause-fill"></i>
+                  Pause
+                </button>
+
+                <button
+                  id="pomodoro-skip-btn"
+                  class="flex items-center gap-2 cursor-pointer rounded-lg border border-white/20 dark:border-white/10 bg-white dark:bg-white/10 px-5 py-2.5 text-sm shadow-sm hover:bg-gray-100 dark:hover:bg-white/20 transition"
+                >
+                  <i class="ri-skip-forward-fill"></i>
+                  Skip
+                </button>
+              </div>
+            </div>
+
+            <!-- Motivation Quote-->
+            <div
+              class="flex hidden flex-col gap-3 border border-white dark:border-black mt-14 rounded-[3px] bg-white/50 dark:bg-black/50 backdrop-blur-[2px] shadow-[0px_0px_1px_0.1px_white] dark:shadow-[0px_0px_1px_0.1px_black] min-w-[200px] w-full max-w-[430px] sm:max-w-[670px] md:max-w-[920px] h-[420px] p-3"
+            >
+              <!-- Header -->
+              <div class="flex items-center justify-between">
+                <div>
+                  <h1
+                    class="text-lg font-semibold text-gray-800 dark:text-white"
+                  >
+                    Motivation Quote
+                  </h1>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">
+                    Stay inspired every day
+                  </p>
+                </div>
+
+                <button
+                  id="new-quote-btn"
+                  class="flex items-center cursor-pointer gap-1 rounded-md border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 px-3 py-2 text-xs hover:bg-white/70 dark:hover:bg-white/10 transition"
+                >
+                  <i class="ri-refresh-line"></i>
+                  New
+                </button>
+              </div>
+
+              <!-- Quote -->
+              <div
+                class="grow flex flex-col items-center justify-center rounded-xl border border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 p-6 text-center"
+              >
+                <i
+                  class="ri-double-quotes-l text-5xl text-gray-300 dark:text-gray-600 mb-4"
+                ></i>
+
+                <p
+                  id="quote-text"
+                  class="text-xl font-medium leading-relaxed text-gray-800 dark:text-white"
+                >
+                  Loading quote...
+                </p>
+
+                <span
+                  id="quote-author"
+                  class="mt-5 text-sm text-gray-500 dark:text-gray-400"
+                >
+                  —
+                </span>
+              </div>
+
+              <!-- Footer -->
+              <button
+                id="copy-quote-btn"
+                class="rounded-lg border cursor-pointer border-white/20 dark:border-white/10 bg-white/40 dark:bg-white/5 py-2 text-sm hover:bg-white/70 dark:hover:bg-white/10 transition"
+              >
+                <i class="ri-file-copy-line mr-1"></i>
+                Copy Quote
+              </button>
+            </div>
+          </div>
+
+          <!--  Navigation -->
+          <div
+            id="app-navigation-bar"
+            class="h-[400px] [&::-webkit-scrollbar]:hidden gap-2 overflow-scroll mt-14 w-30 p-2 bg-white/50 dark:bg-black/50 backdrop-blur-[2px] shadow-[0px_0px_1px_0.1px_white] dark:shadow-[0px_0px_1px_0.1px_black] border-white dark:border-black rounded-sm border-white/90 flex flex-col items-start dark:text-white"
+          >
+          <!-- weather -->
+            <div
+              data-widget="weather"
+              class="app-card flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/60 dark:bg-black/40 p-[5px] rounded-md backdrop-blur-[4px] text-center dark:text-white"
+            >
+              <video
+                class="w-full object-cover object-center h-12 border-[1px] border-white/60 dark:border-white/20 rounded-md inset-shadow-md"
+                muted
+              >
+                <source src="/assets/weather.mp4" type="video/mp4" />
+              </video>
+              <h1 class="text-xs text-shadow-lg">Weather Widget</h1>
+            </div>
+
+          <!-- todo -->
+            <div
+              data-widget="todo"
+              class="app-card flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/30 hover:bg-white/60 dark:bg-gray-400/30 hover:dark:bg-black/40 p-[5px] rounded-md backdrop-blur-[4px] text-center dark:text-white"
+            >
+              <video
+                class="w-full object-cover object-center h-12 border-[1px] border-white/60 dark:border-white/20 rounded-md inset-shadow-md"
+                muted
+              >
+                <source src="/assets/todo.mp4" type="video/mp4" />
+              </video>
+              <h1 class="text-xs text-shadow-lg">Todo List</h1>
+            </div>
+          
+            <!-- daily planner -->
+            <div
+              data-widget="planner"
+              class="app-card flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/30 hover:bg-white/60 dark:bg-gray-400/30 hover:dark:bg-black/40 p-[5px] rounded-md backdrop-blur-[4px] text-center dark:text-white"
+            >
+              <video
+                class="w-full object-cover object-center h-12 border-[1px] border-white/60 dark:border-white/20 rounded-md inset-shadow-md"
+                muted
+              >
+                <source src="/assets/daily-plain.mp4" type="video/mp4" />
+              </video>
+              <h1 class="text-xs text-shadow-lg">Daily planner</h1>
+            </div>
+
+            <!-- timer -->
+            <div
+              data-widget="timer"
+              class="app-card flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/30 hover:bg-white/60 dark:bg-gray-400/30 hover:dark:bg-black/40 p-[5px] rounded-md backdrop-blur-[4px] text-center dark:text-white"
+            >
+              <video
+                class="w-full object-cover object-center h-12 border-[1px] border-white/60 dark:border-white/20 rounded-md inset-shadow-md"
+                muted
+              >
+                <source src="/assets/timer.mp4" type="video/mp4" />
+              </video>
+              <h1 class="text-xs text-shadow-lg">Pomodoro Timer</h1>
+            </div>
+
+            <!-- quote -->
+            <div
+              data-widget="quote"
+              class="app-card flex flex-col cursor-pointer w-full h-fit shadow-md gap-2 bg-white/30 hover:bg-white/60 dark:bg-gray-400/30 hover:dark:bg-black/40 p-[5px] rounded-md backdrop-blur-[4px] text-center dark:text-white"
+            >
+              <video
+                class="w-full object-cover object-center h-12 border-[1px] border-white/60 dark:border-white/20 rounded-md inset-shadow-md"
+                muted
+              >
+                <source src="/assets/quote.mp4" type="video/mp4" />
+              </video>
+              <h1 class="text-xs text-shadow-lg">Motivation Quote</h1>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </main>
     <script src="script.js"></script>
   </body>
