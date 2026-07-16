@@ -142,11 +142,18 @@ let pomodoroState = {
 
 function updateBackgroundImage() {
   const currentHour = new Date().getHours() 
-  const isDayTime = currentHour >= 6 && currentHour < 18 
 
-  mainBackground.style.backgroundImage = isDayTime
-    ? 'url("assets/day.jpg")'
-    : 'url("assets/night.jpg")'
+  let backgroundImage = "assets/Night.png"
+
+  if (currentHour >= 6 && currentHour < 10) {
+    backgroundImage = "assets/Morning.png"
+  } else if (currentHour >= 10 && currentHour < 16) {
+    backgroundImage = "assets/Day.png"
+  } else if (currentHour >= 16 && currentHour < 19) {
+    backgroundImage = "assets/Evening.png"
+  }
+
+  mainBackground.style.backgroundImage = `url("${backgroundImage}")`
 }
 
 //  Local time
