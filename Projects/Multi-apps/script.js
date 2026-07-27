@@ -1312,6 +1312,7 @@ async function getQuote() {
   }
 }
 
+// by AI
 newQuoteBtn.addEventListener("click", getQuote)  
 
 copyQuoteBtn.addEventListener("click", async () => {
