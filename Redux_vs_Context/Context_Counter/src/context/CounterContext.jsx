@@ -20,7 +20,8 @@ export const CounterProvider = ({ children }) => {
         reset,
       }}
     >
-      {children}
+      {/* app */}
+      {children} 
     </CounterContext.Provider>
   );
 };

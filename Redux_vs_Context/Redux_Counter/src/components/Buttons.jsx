@@ -11,7 +11,7 @@ const Buttons = () => {
   return (
     <div className="flex gap-3 justify-center">
       <button
-        onClick={() => dispatch(increment())}
+        onClick={() => dispatch(increment('hello'))}
         className="px-5 py-3 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-600 transition"
       >
         Increment

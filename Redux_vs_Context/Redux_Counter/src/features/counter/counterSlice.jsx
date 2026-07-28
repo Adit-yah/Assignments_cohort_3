@@ -54,9 +54,11 @@ const counterSlice = createSlice({
 
 //   actions: {
 
-//     increment() {
+//     increment(data) {
 //       return {
 //         type: "counter/increment"
+//         // if user call it like -> dispatch(increment(1))
+//         payload : data   
 //       };
 //     },
 
